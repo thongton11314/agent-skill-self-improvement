@@ -19,7 +19,7 @@
             </p>
             <div class="hero-actions">
                 <a href="#overview" class="btn btn-primary">Learn More</a>
-                <a href="https://github.com" class="btn btn-secondary">View on GitHub</a>
+                <a href="https://github.com/thongton11314/agent-skill-self-improvement" class="btn btn-secondary">View on GitHub</a>
             </div>
             <div class="hero-stats">
                 <div class="stat">
@@ -498,26 +498,33 @@ print(f"Skill v{skill.version}: {skill.accuracy:.0%} accuracy")</code></pre>
 
             <h3 class="subsection-title" style="margin-top: 3rem;">Multi-Agent Collaboration</h3>
             <div class="collab-diagram">
-                <div class="collab-flow">
+                <!-- Row 1: Orchestrator → SkillRetriever -->
+                <div class="collab-row">
                     <div class="collab-node collab-start">Orchestrator</div>
-                    <div class="collab-arrow">&rarr;</div>
+                </div>
+                <div class="collab-connector">&#8595;</div>
+                <div class="collab-row">
                     <div class="collab-node collab-agent">SkillRetriever</div>
-                    <div class="collab-arrow">&rarr;</div>
+                </div>
+                <div class="collab-connector">&#8595;</div>
+                <!-- Decision diamond -->
+                <div class="collab-row">
                     <div class="collab-decision">Skill exists?</div>
                 </div>
-                <div class="collab-branches">
-                    <div class="collab-branch">
+                <!-- Branch row -->
+                <div class="collab-branch-row">
+                    <div class="collab-branch-path">
                         <span class="collab-label collab-yes">Yes</span>
-                        <div class="collab-arrow">&rarr;</div>
+                        <div class="collab-connector">&#8595;</div>
                         <div class="collab-node collab-agent">SkillExecutor</div>
-                        <div class="collab-arrow">&rarr;</div>
+                        <div class="collab-connector">&#8595;</div>
                         <div class="collab-node collab-end">Result</div>
                     </div>
-                    <div class="collab-branch">
+                    <div class="collab-branch-path">
                         <span class="collab-label collab-no">No</span>
-                        <div class="collab-arrow">&rarr;</div>
+                        <div class="collab-connector">&#8595;</div>
                         <div class="collab-node collab-agent">SkillEvolver</div>
-                        <div class="collab-arrow">&rarr;</div>
+                        <div class="collab-connector">&#8595;</div>
                         <div class="collab-node collab-agent">MemoryConsultant</div>
                     </div>
                 </div>
@@ -534,8 +541,8 @@ print(f"Skill v{skill.version}: {skill.accuracy:.0%} accuracy")</code></pre>
                 Start evolving skills that outperform human-authored ones.
             </p>
             <div class="hero-actions">
-                <a href="https://github.com" class="btn btn-primary">Get Started</a>
-                <a href="#architecture" class="btn btn-secondary">Read the Docs</a>
+                <a href="https://github.com/thongton11314/agent-skill-self-improvement" class="btn btn-primary">Get Started</a>
+                <a href="https://github.com/thongton11314/agent-skill-self-improvement" class="btn btn-secondary">Read the Docs</a>
             </div>
         </div>
     </section>

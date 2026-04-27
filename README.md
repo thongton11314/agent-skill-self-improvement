@@ -262,6 +262,110 @@ flowchart TD
 
 ---
 
+## Agentic Platform Integration
+
+SkillForge exposes its capabilities as **discoverable agents** that any orchestration framework can invoke. See [AGENTS.md](AGENTS.md) for the full specification.
+
+### Available Agents
+
+| Agent ID | Name | Purpose |
+|---|---|---|
+| `skillforge.evolver` | SkillEvolver | Evolve a verified skill package for a task |
+| `skillforge.retriever` | SkillRetriever | Search the Skill Bank for existing skills |
+| `skillforge.executor` | SkillExecutor | Execute a task augmented with a skill |
+| `skillforge.evaluator` | SkillEvaluator | Benchmark and compare skill quality |
+| `skillforge.memory` | MemoryConsultant | Query tiered memory for experience |
+
+### Integration Protocols
+
+**1. Tool Registration** — Register SkillForge functions as tools in any agent framework:
+
+```python
+from skillforge.agentic import create_tools
+
+tools = create_tools(forge)  # Returns 5 bound tools
+
+# Compatible with: LangChain, AutoGen, Semantic Kernel, OpenAI function calling
+for tool in tools:
+    print(f"{tool.name}: {tool.description}")
+    # Export as OpenAI function schema:
+    schema = tool.to_openai_function()
+```
+
+**2. Sub-Agent Delegation** — Provide SkillForge agents to orchestrators:
+
+```python
+from skillforge.agentic import SkillForgeAgentProvider
+
+provider = SkillForgeAgentProvider(forge=forge)
+evolver = provider.get_agent("skillforge.evolver")
+
+# Delegate from your orchestrator
+result = evolver.invoke_sync(task={"instruction": "Build a data pipeline"})
+```
+
+**3. Event-Driven** — Subscribe to lifecycle events for reactive workflows:
+
+```python
+from skillforge.agentic import SkillForgeEventBus
+
+bus = SkillForgeEventBus(forge=forge)
+
+@bus.on("skill.evolved")
+def on_evolved(event):
+    print(f"New skill v{event.data['version']}")
+
+@bus.on("task.failed")
+def on_failure(event):
+    # Auto-trigger re-evolution
+    pass
+```
+
+**4. MCP Server** — Expose as Model Context Protocol server for VS Code / Copilot agents:
+
+```json
+{
+  "mcpServers": {
+    "skillforge": {
+      "command": "python",
+      "args": ["-m", "skillforge.agentic.mcp_server"]
+    }
+  }
+}
+```
+
+### Multi-Agent Collaboration Pattern
+
+```
+Orchestrator ──► SkillRetriever ──► "Skill exists?" ──► SkillExecutor ──► Result
+     │                                    │ No
+     │                                    ▼
+     │                              SkillEvolver ──► "Create & verify"
+     │                                    │
+     │                                    ▼
+     └─────────────────────────── MemoryConsultant ──► "Learn from outcome"
+```
+
+### Discoverable Skill Files
+
+Skill files in `skills/` follow the standard YAML frontmatter format for agent discovery:
+
+```yaml
+---
+name: skillforge-evolve-skill
+description: Evolve a reusable skill package...
+agent_id: skillforge.evolver
+tools: [skill_generator, surrogate_verifier, evolution_engine]
+---
+```
+
+See:
+- [skills/evolve-skill.md](skills/evolve-skill.md) — How to evolve a new skill
+- [skills/retrieve-and-apply.md](skills/retrieve-and-apply.md) — How to find and use existing skills
+- [skills/evaluate-skills.md](skills/evaluate-skills.md) — How to benchmark skill quality
+
+---
+
 ## Integration Guide
 
 SkillForge is designed as a plug-in framework that integrates into existing AI systems through multiple modes.
@@ -768,7 +872,7 @@ skillforge/
 
 ## Roadmap
 
-### Phase 1: Core Framework (Current)
+### Phase 1: Core Framework ✅
 - [x] Co-evolutionary skill generation architecture
 - [x] Surrogate verification with information isolation
 - [x] Three-tier memory system
@@ -776,19 +880,31 @@ skillforge/
 - [x] Evaluation module with synthetic test generation
 - [x] Human vs AI simulation framework
 
-### Phase 2: Integration & Extensibility
-- [ ] Multi-model skill evolution (evolve across model families simultaneously)
-- [ ] Real-time skill adaptation during deployment
-- [ ] Distributed skill bank with federated learning
-- [ ] Visual/multimodal skill support
-- [ ] Domain-specific skill templates
+### Phase 2: Agentic Integration & Extensibility ✅
+- [x] Agentic platform integration layer (Tool Registry, Agent Provider, Event Bus)
+- [x] AGENTS.md with 5 discoverable agents + input/output schemas
+- [x] Discoverable skill files (YAML frontmatter for agent discovery)
+- [x] Multi-agent collaboration protocol (orchestrator delegation pattern)
+- [x] MCP server compatibility for VS Code / Copilot agents
+- [x] OpenAI function calling + LangChain tool export
+- [x] Multi-model skill evolution (evolve across model families simultaneously)
+- [x] Domain-specific skill templates (5 domains)
 
 ### Phase 3: Production Readiness
+- [ ] Real-time skill adaptation during deployment
+- [ ] Distributed skill bank with federated learning
 - [ ] Skill versioning and rollback
 - [ ] A/B testing infrastructure for skill variants
 - [ ] Monitoring dashboard for skill performance
 - [ ] Cost optimization for evolution budget
 - [ ] Enterprise security and audit logging
+
+### Phase 4: Community & Ecosystem
+- [ ] Visual/multimodal skill support
+- [ ] Public skill marketplace
+- [ ] Benchmark leaderboard
+- [ ] Community skill contribution pipeline
+- [ ] Cross-framework compatibility layer
 
 ---
 

@@ -24,7 +24,7 @@ Test structure and patterns used in SkillForge.
 ## File Naming
 
 - `test_<module>.py` — one test file per logical module or concern.
-- Current test files: `test_core.py`, `test_evaluation.py`, `test_generator.py`, `test_memory.py`, `test_retrieval.py`, `test_verifier.py`.
+- Current test files: `test_core.py`, `test_evaluation.py`, `test_generator.py`, `test_memory.py`, `test_retrieval.py`, `test_verifier.py`, `test_platform_integration.py`.
 
 ## Patterns
 
@@ -44,3 +44,4 @@ Test structure and patterns used in SkillForge.
 | `test_retrieval.py` | `SkillBank` storage and retrieval |
 | `test_evaluation.py` | `BenchmarkRunner`, `SimulationRunner` |
 | `test_agentic.py` | `SkillForgeAgentProvider`, `SkillForgeTool`, `SkillForgeEventBus` |
+| `test_platform_integration.py` | Cross-platform integration: VS Code Copilot agents/skills, Claude CLAUDE.md/skills, Codex AGENTS.md, cross-platform consistency, runtime alignment |

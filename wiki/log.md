@@ -15,6 +15,12 @@ Chronological record of all wiki and code operations.
 
 ---
 
+## [2026-04-27] update | Cross-Platform Integration Tests
+
+- **Operation**: code-change
+- **Pages touched**: [[testing-conventions]], [[platform-integration]], [[index]], [[log]]
+- **Summary**: Created `tests/test_platform_integration.py` with 54 tests across 8 test classes validating VS Code Copilot agents/skills, Claude CLAUDE.md/skills, Codex AGENTS.md, cross-platform skill consistency, copilot-instructions coherence, and runtime alignment (agent IDs + tool names match live SkillForge instance). Full suite: 129 passed.
+
 ## [2026-04-27] update | Platform Integration — VS Code Copilot, Claude, Codex
 
 - **Operation**: code-change

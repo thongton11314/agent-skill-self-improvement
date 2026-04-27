@@ -48,6 +48,8 @@ Metadata: id, name, description, capabilities, stateful.
 |--------|-----------|-------------|
 | `list_agents` | `() → list[AgentDescriptor]` | List all available agents |
 | `get_agent` | `(agent_id) → SkillForgeAgent` | Get agent by ID |
+| `get_all_agents` | `() → list[SkillForgeAgent]` | Get all available SkillForge agents |
+| `list_agent_ids` | `() → list[str]` | List all available agent IDs |
 
 ## Dependencies
 

@@ -548,17 +548,18 @@ runner.generate_report(results, output="benchmark_report.html")
 ### API-Based Integration
 
 ```python
-from skillforge.server import create_app
+from skillforge.integrations import create_app
 
 # Deploy SkillForge as a REST API
 app = create_app(forge)
 
 # Endpoints:
-# POST /skills/evolve      - Evolve a skill for a task
-# GET  /skills/{id}         - Retrieve an evolved skill
-# POST /skills/execute      - Execute a task with a skill
-# POST /evaluate/benchmark  - Run benchmark evaluation
-# GET  /memory/retrieve     - Query the memory system
+# POST /v1/skills/evolve      - Evolve a skill for a task
+# GET  /v1/skills/{skill_id}  - Retrieve an evolved skill
+# GET  /v1/skills/search      - Search skills by query
+# POST /v1/evaluate/test-gen  - Generate synthetic tests
+# GET  /v1/memory/retrieve    - Query the memory system
+# GET  /v1/health             - Health check
 ```
 
 For detailed integration instructions, see [docs/integration.md](docs/integration.md).
@@ -960,11 +961,9 @@ skillforge/
 │   ├── ai_skills/                 # AI-generated skill artifacts
 │   └── results/
 │       └── simulation_results.json # Synthetic simulation results
-├── website/
-│   ├── index.html                 # GitHub Pages showcase
-│   └── styles.css                 # Website styles
-└── methodology/
-    └── research-guild.md          # Research methodology guide
+└── website/
+    ├── index.html                 # GitHub Pages showcase
+    └── styles.css                 # Website styles
 ```
 
 ---

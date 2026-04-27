@@ -15,6 +15,12 @@ Chronological record of all wiki and code operations.
 
 ---
 
+## [2026-04-27] lint | Fix 6 Audit Issues — Wiki, Code, README
+
+- **Operation**: lint
+- **Pages touched**: [[failure]], [[provider]], [[log]], [[index]]
+- **Summary**: Fixed 6 issues from Workflow 8 health check. (1) failure.md: replaced non-existent `get_summary()` with actual methods `record_failure()` and `records` property. (2) provider.md: added undocumented `get_all_agents()` and `list_agent_ids()` methods. (3) integrations `__init__.py`: added exports for `AgentAdapter`, `LLMMiddleware`, `create_app`. (4) README: fixed import path `skillforge.server` → `skillforge.integrations`. (5) README: corrected API endpoints to `/v1/` prefix and removed non-existent routes. (6) README: removed non-existent `methodology/` folder from directory listing. All 129 tests passed.
+
 ## [2026-04-27] update | Move Integration Section Below Platform Setup
 
 - **Operation**: code-change

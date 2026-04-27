@@ -33,8 +33,9 @@ Dataclass: task_id, category, description, severity (critical/major/minor), skil
 
 | Method | Signature | Description |
 |--------|-----------|-------------|
-| `analyze` | `(records) → dict` | Categorize and aggregate failure patterns |
-| `get_summary` | `() → dict` | Summary statistics of recorded failures |
+| `record_failure` | `(task_id, category, description, severity, skill_version) → None` | Record a single failure |
+| `analyze` | `(results, categories) → dict` | Categorize and aggregate failure patterns |
+| `records` | `property → list[FailureRecord]` | Access recorded failures |
 
 ## Dependencies
 

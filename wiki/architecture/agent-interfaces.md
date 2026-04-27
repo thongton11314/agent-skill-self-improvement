@@ -3,13 +3,18 @@ title: "Agent Interfaces"
 type: architecture
 created: 2026-04-27
 updated: 2026-04-27
-tags: [architecture, agents, integration, mcp]
+tags: [architecture, agents, integration, mcp, platform]
 sources: []
-related: [system-overview, provider, tools, events]
+related: [system-overview, provider, tools, events, platform-integration]
 source_paths:
   - src/skillforge/agentic/provider.py
   - src/skillforge/agentic/tools.py
   - src/skillforge/agentic/events.py
+  - .github/agents/
+  - .github/skills/
+  - .claude/skills/
+  - CLAUDE.md
+  - AGENTS.md
 status: verified
 ---
 
@@ -56,3 +61,13 @@ Orchestrator → SkillRetriever → SkillExecutor → Memory
      │                                            │
      └── (no skill) → SkillEvolver ───────────────┘
 ```
+
+## Platform Integration
+
+SkillForge provides native integration files for three AI coding platforms. See [[platform-integration]] for full details.
+
+| Platform | Discovery File | Agents | Skills |
+|----------|---------------|--------|--------|
+| VS Code Copilot Chat | `.github/copilot-instructions.md` | 3 `.agent.md` files | 3 `SKILL.md` files |
+| Claude Code / Workspace | `CLAUDE.md` | — | 3 `SKILL.md` files |
+| OpenAI Codex | `AGENTS.md` (root) | — | `skills/*.md` |

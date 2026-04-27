@@ -15,6 +15,12 @@ Chronological record of all wiki and code operations.
 
 ---
 
+## [2026-04-27] update | Platform Integration — VS Code Copilot, Claude, Codex
+
+- **Operation**: code-change
+- **Pages touched**: [[platform-integration]], [[agent-interfaces]], [[overview]], [[index]], [[log]]
+- **Summary**: Created native platform integration files for three AI coding platforms. VS Code Copilot Chat: 3 `.agent.md` agents + 3 `SKILL.md` skills in `.github/`. Claude Code: `CLAUDE.md` + 3 skills in `.claude/skills/`. Codex: Platform Integration section added to `AGENTS.md` with `skills/` directory references. Added Platform Setup section to website (index.html, styles.css). Created `wiki/architecture/platform-integration.md` wiki page.
+
 ## [2026-04-27] update | Website Agentic Platform Section & README Mermaid
 
 - **Operation**: update

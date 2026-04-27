@@ -41,6 +41,18 @@ SkillForge is a self-evolving skill synthesis framework for AI agents. It enable
 - **Event Bus** — Pub/sub lifecycle events via `SkillForgeEventBus`
 - **LLM Middleware** — Transparent skill injection decorator
 
+## Platform Integration
+
+SkillForge integrates natively with three AI coding platforms:
+
+| Platform | Context File | Agents | Skills |
+|----------|-------------|--------|--------|
+| VS Code Copilot Chat | `.github/copilot-instructions.md` | 3 custom agents (`@` picker) | 3 skills (`/` commands) |
+| Claude Code / Workspace | `CLAUDE.md` | — | 3 skills (`.claude/skills/`) |
+| OpenAI Codex | `AGENTS.md` | — | 3 skills (`skills/`) |
+
+See [[platform-integration]] for full details.
+
 ## Tech Stack
 
 - Python 3.x with dataclasses for domain objects

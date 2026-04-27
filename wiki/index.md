@@ -29,6 +29,7 @@ Master catalog of all wiki pages. Updated after every wiki operation.
 |------|---------|---------|---------|
 | [[system-overview]] | Top-level architecture: layers, data flows, component map | 0 | 2026-04-27 |
 | [[agent-interfaces]] | SkillForge agent IDs, schemas, integration protocols | 0 | 2026-04-27 |
+| [[platform-integration]] | VS Code Copilot, Claude, Codex platform integration files and setup | 0 | 2026-04-27 |
 
 ### Modules
 

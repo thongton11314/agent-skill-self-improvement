@@ -13,6 +13,7 @@
 - [Key Components](#key-components)
 - [Workflow](#workflow)
 - [Agentic Platform Integration](#agentic-platform-integration)
+- [Platform Setup](#platform-setup)
 - [Integration Guide](#integration-guide)
 - [Evaluation Methodology](#evaluation-methodology)
 - [Benchmarking](#benchmarking)
@@ -364,6 +365,47 @@ See:
 - [skills/evolve-skill.md](skills/evolve-skill.md) — How to evolve a new skill
 - [skills/retrieve-and-apply.md](skills/retrieve-and-apply.md) — How to find and use existing skills
 - [skills/evaluate-skills.md](skills/evaluate-skills.md) — How to benchmark skill quality
+
+### Platform Setup
+
+SkillForge provides native integration files for three AI coding platforms. Each platform auto-discovers agents, skills, and project context from specific files in the repository.
+
+#### VS Code Copilot Chat
+
+| File | Purpose |
+|------|---------|
+| `.github/copilot-instructions.md` | Project-wide instructions loaded into every Copilot session |
+| `.github/agents/skillforge-evolver.agent.md` | Custom agent: evolve skills via co-evolutionary loops |
+| `.github/agents/skillforge-retriever.agent.md` | Custom agent: find and apply existing skills |
+| `.github/agents/skillforge-evaluator.agent.md` | Custom agent: benchmark and compare skill quality |
+| `.github/skills/skillforge-evolve/SKILL.md` | Skill: step-by-step skill evolution procedure |
+| `.github/skills/skillforge-retrieve/SKILL.md` | Skill: find and apply existing skills |
+| `.github/skills/skillforge-evaluate/SKILL.md` | Skill: benchmark and compare skill quality |
+
+**Setup**: Open the repo in VS Code with the [GitHub Copilot Chat](https://marketplace.visualstudio.com/items?itemName=GitHub.copilot-chat) extension installed.
+
+- Agents appear in the agent picker — type `@SkillForge Evolver`, `@SkillForge Retriever`, or `@SkillForge Evaluator`
+- Skills appear as slash commands — type `/skillforge-evolve`, `/skillforge-retrieve`, or `/skillforge-evaluate`
+
+#### Claude Code / Claude Workspace
+
+| File | Purpose |
+|------|---------|
+| `CLAUDE.md` | Project context loaded at the start of every Claude session |
+| `.claude/skills/skillforge-evolve/SKILL.md` | Skill: step-by-step skill evolution procedure |
+| `.claude/skills/skillforge-retrieve/SKILL.md` | Skill: find and apply existing skills |
+| `.claude/skills/skillforge-evaluate/SKILL.md` | Skill: benchmark and compare skill quality |
+
+**Setup**: Open the repo in Claude Code or attach it as a Claude workspace. `CLAUDE.md` is read automatically. Skills are discovered from the `.claude/skills/` directory.
+
+#### OpenAI Codex
+
+| File | Purpose |
+|------|---------|
+| `AGENTS.md` | Full project schema, conventions, workflows, and agent interfaces |
+| `skills/*.md` | Cross-platform skill definitions in YAML+markdown format |
+
+**Setup**: Open the repo in Codex. `AGENTS.md` at the repo root is read automatically — no extra configuration needed. The `skills/` directory contains framework-agnostic skill definitions that Codex can reference.
 
 ---
 

@@ -532,6 +532,108 @@ print(f"Skill v{skill.version}: {skill.accuracy:.0%} accuracy")</code></pre>
         </div>
     </section>
 
+    <!-- Platform Setup Section -->
+    <section id="platform-setup" class="section">
+        <div class="container">
+            <h2 class="section-title">Platform Setup</h2>
+            <p class="section-subtitle">Integrate SkillForge into your AI coding platform in minutes</p>
+
+            <div class="platform-grid">
+                <!-- VS Code Copilot Chat -->
+                <div class="platform-card">
+                    <div class="platform-header">
+                        <div class="platform-icon">&#128187;</div>
+                        <h3>VS Code Copilot Chat</h3>
+                    </div>
+                    <p class="platform-desc">Custom agents appear in the <code>@</code> picker. Skills appear as <code>/</code> slash commands.</p>
+                    <div class="platform-steps">
+                        <h4>Setup</h4>
+                        <ol>
+                            <li>Clone the repo and open in VS Code</li>
+                            <li>Install the <a href="https://marketplace.visualstudio.com/items?itemName=GitHub.copilot-chat">GitHub Copilot Chat</a> extension</li>
+                            <li>Agents and skills are auto-discovered from <code>.github/</code></li>
+                        </ol>
+                        <h4>Usage</h4>
+                        <ul>
+                            <li>Type <code>@SkillForge Evolver</code> to evolve a new skill</li>
+                            <li>Type <code>@SkillForge Retriever</code> to find existing skills</li>
+                            <li>Type <code>@SkillForge Evaluator</code> to benchmark skills</li>
+                            <li>Type <code>/skillforge-evolve</code>, <code>/skillforge-retrieve</code>, or <code>/skillforge-evaluate</code> for guided workflows</li>
+                        </ul>
+                    </div>
+                    <div class="platform-files">
+                        <h4>Files</h4>
+                        <table class="platform-table">
+                            <tr><td><code>.github/copilot-instructions.md</code></td><td>Project-wide instructions</td></tr>
+                            <tr><td><code>.github/agents/*.agent.md</code></td><td>3 custom agents</td></tr>
+                            <tr><td><code>.github/skills/*/SKILL.md</code></td><td>3 skill workflows</td></tr>
+                        </table>
+                    </div>
+                </div>
+
+                <!-- Claude Code -->
+                <div class="platform-card">
+                    <div class="platform-header">
+                        <div class="platform-icon">&#129302;</div>
+                        <h3>Claude Code / Workspace</h3>
+                    </div>
+                    <p class="platform-desc"><code>CLAUDE.md</code> is loaded automatically. Skills are discovered from <code>.claude/skills/</code>.</p>
+                    <div class="platform-steps">
+                        <h4>Setup</h4>
+                        <ol>
+                            <li>Clone the repo</li>
+                            <li>Open in Claude Code or attach as a Claude workspace</li>
+                            <li><code>CLAUDE.md</code> is read automatically at session start</li>
+                        </ol>
+                        <h4>Usage</h4>
+                        <ul>
+                            <li>Claude reads <code>CLAUDE.md</code> for project context, conventions, and architecture</li>
+                            <li>Skills in <code>.claude/skills/</code> provide guided workflows for evolving, retrieving, and evaluating skills</li>
+                            <li>Ask Claude to &ldquo;evolve a skill for X&rdquo; or &ldquo;find a skill for Y&rdquo;</li>
+                        </ul>
+                    </div>
+                    <div class="platform-files">
+                        <h4>Files</h4>
+                        <table class="platform-table">
+                            <tr><td><code>CLAUDE.md</code></td><td>Project context &amp; conventions</td></tr>
+                            <tr><td><code>.claude/skills/*/SKILL.md</code></td><td>3 skill workflows</td></tr>
+                        </table>
+                    </div>
+                </div>
+
+                <!-- OpenAI Codex -->
+                <div class="platform-card">
+                    <div class="platform-header">
+                        <div class="platform-icon">&#9889;</div>
+                        <h3>OpenAI Codex</h3>
+                    </div>
+                    <p class="platform-desc"><code>AGENTS.md</code> at the repo root is automatically read by Codex at session start.</p>
+                    <div class="platform-steps">
+                        <h4>Setup</h4>
+                        <ol>
+                            <li>Clone the repo</li>
+                            <li>Open in Codex</li>
+                            <li><code>AGENTS.md</code> is read automatically &mdash; no extra configuration needed</li>
+                        </ol>
+                        <h4>Usage</h4>
+                        <ul>
+                            <li>Codex reads <code>AGENTS.md</code> for the full project schema, conventions, workflows, and agent interfaces</li>
+                            <li>Reference <code>skills/*.md</code> for framework-agnostic skill definitions</li>
+                            <li>Ask Codex to &ldquo;evolve a skill&rdquo;, &ldquo;retrieve a skill&rdquo;, or &ldquo;evaluate skills&rdquo;</li>
+                        </ul>
+                    </div>
+                    <div class="platform-files">
+                        <h4>Files</h4>
+                        <table class="platform-table">
+                            <tr><td><code>AGENTS.md</code></td><td>Full project schema &amp; workflows</td></tr>
+                            <tr><td><code>skills/*.md</code></td><td>3 cross-platform skill definitions</td></tr>
+                        </table>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
     <!-- CTA Section -->
     <section class="section cta-section">
         <div class="container">

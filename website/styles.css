@@ -953,6 +953,126 @@ body {
     margin: 0 auto 2rem;
 }
 
+/* === Platform Setup === */
+.platform-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+    gap: 2rem;
+    margin-top: 2rem;
+}
+
+.platform-card {
+    background: var(--color-card);
+    border: 1px solid var(--color-border);
+    border-radius: var(--radius);
+    padding: 2rem;
+    box-shadow: var(--shadow);
+    transition: box-shadow 0.2s;
+}
+
+.platform-card:hover {
+    box-shadow: var(--shadow-lg);
+}
+
+.platform-header {
+    display: flex;
+    align-items: center;
+    gap: 0.75rem;
+    margin-bottom: 1rem;
+}
+
+.platform-icon {
+    font-size: 2rem;
+    line-height: 1;
+}
+
+.platform-header h3 {
+    font-size: 1.25rem;
+    color: var(--color-text);
+}
+
+.platform-desc {
+    color: var(--color-text-secondary);
+    font-size: 0.92rem;
+    margin-bottom: 1.5rem;
+}
+
+.platform-desc code {
+    background: #f1f5f9;
+    padding: 0.15rem 0.4rem;
+    border-radius: 4px;
+    font-family: var(--font-mono);
+    font-size: 0.85rem;
+}
+
+.platform-steps h4 {
+    font-size: 0.95rem;
+    color: var(--color-primary);
+    margin-top: 1rem;
+    margin-bottom: 0.5rem;
+    text-transform: uppercase;
+    letter-spacing: 0.05em;
+}
+
+.platform-steps ol,
+.platform-steps ul {
+    margin-left: 1.2rem;
+    font-size: 0.92rem;
+    color: var(--color-text-secondary);
+    line-height: 1.8;
+}
+
+.platform-steps a {
+    color: var(--color-primary);
+    text-decoration: none;
+}
+
+.platform-steps a:hover {
+    text-decoration: underline;
+}
+
+.platform-steps code {
+    background: #f1f5f9;
+    padding: 0.1rem 0.35rem;
+    border-radius: 4px;
+    font-family: var(--font-mono);
+    font-size: 0.82rem;
+}
+
+.platform-files {
+    margin-top: 1.5rem;
+    padding-top: 1rem;
+    border-top: 1px solid var(--color-border);
+}
+
+.platform-files h4 {
+    font-size: 0.9rem;
+    color: var(--color-text);
+    margin-bottom: 0.5rem;
+}
+
+.platform-table {
+    width: 100%;
+    font-size: 0.85rem;
+}
+
+.platform-table td {
+    padding: 0.35rem 0.5rem;
+    vertical-align: top;
+}
+
+.platform-table td:first-child {
+    font-family: var(--font-mono);
+    font-size: 0.8rem;
+    color: var(--color-primary);
+    white-space: nowrap;
+    width: 55%;
+}
+
+.platform-table td:last-child {
+    color: var(--color-text-secondary);
+}
+
 /* === Footer === */
 .footer {
     background: #0f172a;

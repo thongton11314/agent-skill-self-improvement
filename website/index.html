@@ -5,6 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>SkillForge — Self-Evolving Skill Synthesis Framework</title>
     <link rel="stylesheet" href="styles.css">
+    <script src="https://cdn.jsdelivr.net/npm/marked/marked.min.js"></script>
 </head>
 <body>
     <!-- Hero Section -->
@@ -149,49 +150,52 @@
             <h2 class="section-title">Workflow</h2>
             <p class="section-subtitle">Co-evolutionary skill synthesis in iterative cycles</p>
 
-            <div class="workflow-steps">
-                <div class="step">
-                    <div class="step-num">1</div>
-                    <div class="step-content">
-                        <h4>Task Ingestion</h4>
-                        <p>Receive task definition with instructions and environment specification</p>
-                    </div>
-                </div>
-                <div class="step">
-                    <div class="step-num">2</div>
-                    <div class="step-content">
-                        <h4>Skill Generation</h4>
-                        <p>Generator creates initial skill package (v0) with workflow docs and scripts</p>
-                    </div>
-                </div>
-                <div class="step">
-                    <div class="step-num">3</div>
-                    <div class="step-content">
-                        <h4>Surrogate Verification</h4>
-                        <p>Isolated verifier generates test assertions and evaluates skill outputs</p>
-                    </div>
-                </div>
-                <div class="step">
-                    <div class="step-num">4</div>
-                    <div class="step-content">
-                        <h4>Feedback Loop</h4>
-                        <p>Structured failure diagnostics drive iterative skill refinement</p>
-                    </div>
-                </div>
-                <div class="step">
-                    <div class="step-num">5</div>
-                    <div class="step-content">
-                        <h4>Oracle Validation</h4>
-                        <p>Ground-truth oracle provides opaque pass/fail; triggers test escalation on gap</p>
-                    </div>
-                </div>
-                <div class="step">
-                    <div class="step-num">6</div>
-                    <div class="step-content">
-                        <h4>Deploy & Learn</h4>
-                        <p>Verified skills stored in bank; experience distilled into tiered memory</p>
-                    </div>
-                </div>
+            <div class="workflow-diagram">
+                <pre class="mermaid">
+flowchart TD
+    A[Task Input] --> B[Skill Generator]
+    B --> C[Generate Skill Package v0]
+    C --> D[Execute Skill in Environment]
+    D --> E[Surrogate Verifier]
+    E --> F{Tests Pass?}
+    F -->|No| G[Generate Failure Diagnostics]
+    G --> H[Append Feedback to Context]
+    H --> B
+    F -->|Yes| I[Ground Truth Oracle]
+    I --> J{Oracle Pass?}
+    J -->|No| K[Escalate Verifier Tests]
+    K --> E
+    J -->|Yes| L[Deploy Evolved Skill]
+    L --> M[Store in Skill Bank]
+    M --> N[Update Memory Tiers]
+    N --> O[Adaptive Retrieval Update]
+    O --> P{More Tasks?}
+    P -->|Yes| A
+    P -->|No| Q[Final Skill Portfolio]
+
+    subgraph Co-Evolution Loop
+        B
+        C
+        D
+        E
+        F
+        G
+        H
+        I
+        J
+        K
+    end
+
+    subgraph Memory and Retrieval
+        M
+        N
+        O
+    end
+
+    style A fill:#4CAF50,color:#fff
+    style Q fill:#2196F3,color:#fff
+    style L fill:#FF9800,color:#fff
+                </pre>
             </div>
 
             <div class="convergence-note">
@@ -542,7 +546,7 @@ print(f"Skill v{skill.version}: {skill.accuracy:.0%} accuracy")</code></pre>
                 <!-- VS Code Copilot Chat -->
                 <div class="platform-card">
                     <div class="platform-header">
-                        <div class="platform-icon">&#128187;</div>
+                        <div class="platform-icon"><img src="images/icon-vscode.png" alt="VS Code"></div>
                         <h3>VS Code Copilot Chat</h3>
                     </div>
                     <p class="platform-desc">Custom agents appear in the <code>@</code> picker. Skills appear as <code>/</code> slash commands.</p>
@@ -564,9 +568,9 @@ print(f"Skill v{skill.version}: {skill.accuracy:.0%} accuracy")</code></pre>
                     <div class="platform-files">
                         <h4>Files</h4>
                         <table class="platform-table">
-                            <tr><td><code>.github/copilot-instructions.md</code></td><td>Project-wide instructions</td></tr>
-                            <tr><td><code>.github/agents/*.agent.md</code></td><td>3 custom agents</td></tr>
-                            <tr><td><code>.github/skills/*/SKILL.md</code></td><td>3 skill workflows</td></tr>
+                            <tr><td><a href="#" class="file-preview-link" data-path=".github/copilot-instructions.md"><code>.github/copilot-instructions.md</code></a></td><td>Project-wide instructions</td></tr>
+                            <tr><td><a href="#" class="file-preview-link" data-paths=".github/agents/skillforge-evolver.agent.md,.github/agents/skillforge-retriever.agent.md,.github/agents/skillforge-evaluator.agent.md"><code>.github/agents/*.agent.md</code></a></td><td>3 custom agents</td></tr>
+                            <tr><td><a href="#" class="file-preview-link" data-paths=".github/skills/skillforge-evolve/SKILL.md,.github/skills/skillforge-retrieve/SKILL.md,.github/skills/skillforge-evaluate/SKILL.md"><code>.github/skills/*/SKILL.md</code></a></td><td>3 skill workflows</td></tr>
                         </table>
                     </div>
                 </div>
@@ -574,7 +578,7 @@ print(f"Skill v{skill.version}: {skill.accuracy:.0%} accuracy")</code></pre>
                 <!-- Claude Code -->
                 <div class="platform-card">
                     <div class="platform-header">
-                        <div class="platform-icon">&#129302;</div>
+                        <div class="platform-icon"><img src="images/icon-claude.png" alt="Claude"></div>
                         <h3>Claude Code / Workspace</h3>
                     </div>
                     <p class="platform-desc"><code>CLAUDE.md</code> is loaded automatically. Skills are discovered from <code>.claude/skills/</code>.</p>
@@ -595,8 +599,8 @@ print(f"Skill v{skill.version}: {skill.accuracy:.0%} accuracy")</code></pre>
                     <div class="platform-files">
                         <h4>Files</h4>
                         <table class="platform-table">
-                            <tr><td><code>CLAUDE.md</code></td><td>Project context &amp; conventions</td></tr>
-                            <tr><td><code>.claude/skills/*/SKILL.md</code></td><td>3 skill workflows</td></tr>
+                            <tr><td><a href="#" class="file-preview-link" data-path="CLAUDE.md"><code>CLAUDE.md</code></a></td><td>Project context &amp; conventions</td></tr>
+                            <tr><td><a href="#" class="file-preview-link" data-paths=".claude/skills/skillforge-evolve/SKILL.md,.claude/skills/skillforge-retrieve/SKILL.md,.claude/skills/skillforge-evaluate/SKILL.md"><code>.claude/skills/*/SKILL.md</code></a></td><td>3 skill workflows</td></tr>
                         </table>
                     </div>
                 </div>
@@ -604,7 +608,7 @@ print(f"Skill v{skill.version}: {skill.accuracy:.0%} accuracy")</code></pre>
                 <!-- OpenAI Codex -->
                 <div class="platform-card">
                     <div class="platform-header">
-                        <div class="platform-icon">&#9889;</div>
+                        <div class="platform-icon"><img src="images/icon-codex.jpg" alt="OpenAI Codex"></div>
                         <h3>OpenAI Codex</h3>
                     </div>
                     <p class="platform-desc"><code>AGENTS.md</code> at the repo root is automatically read by Codex at session start.</p>
@@ -625,8 +629,8 @@ print(f"Skill v{skill.version}: {skill.accuracy:.0%} accuracy")</code></pre>
                     <div class="platform-files">
                         <h4>Files</h4>
                         <table class="platform-table">
-                            <tr><td><code>AGENTS.md</code></td><td>Full project schema &amp; workflows</td></tr>
-                            <tr><td><code>skills/*.md</code></td><td>3 cross-platform skill definitions</td></tr>
+                            <tr><td><a href="#" class="file-preview-link" data-path="AGENTS.md"><code>AGENTS.md</code></a></td><td>Full project schema &amp; workflows</td></tr>
+                            <tr><td><a href="#" class="file-preview-link" data-paths="skills/evolve-skill.md,skills/retrieve-and-apply.md,skills/evaluate-skills.md"><code>skills/*.md</code></a></td><td>3 cross-platform skill definitions</td></tr>
                         </table>
                     </div>
                 </div>
@@ -659,5 +663,107 @@ print(f"Skill v{skill.version}: {skill.accuracy:.0%} accuracy")</code></pre>
             </p>
         </div>
     </footer>
+    <!-- File Preview Modal -->
+    <div id="file-preview-modal" class="modal">
+        <div class="modal-overlay"></div>
+        <div class="modal-container">
+            <div class="modal-header">
+                <h3 id="modal-title"></h3>
+                <button id="modal-close" class="modal-close">&times;</button>
+            </div>
+            <div id="modal-body" class="modal-body"></div>
+        </div>
+    </div>
+
+    <!-- Mermaid -->
+    <script src="https://cdn.jsdelivr.net/npm/mermaid@10/dist/mermaid.min.js"></script>
+    <script>
+        mermaid.initialize({ startOnLoad: true, theme: 'default' });
+    </script>
+
+    <!-- File Preview Script -->
+    <script>
+    (function() {
+        const GITHUB_RAW_BASE = 'https://raw.githubusercontent.com/thongton11314/agent-skill-self-improvement/main/';
+
+        const modal = document.getElementById('file-preview-modal');
+        const modalTitle = document.getElementById('modal-title');
+        const modalBody = document.getElementById('modal-body');
+        const modalClose = document.getElementById('modal-close');
+        const modalOverlay = modal.querySelector('.modal-overlay');
+
+        function closeModal() {
+            modal.classList.remove('active');
+            document.body.style.overflow = '';
+        }
+
+        function openModal(title) {
+            modalTitle.textContent = title;
+            modal.classList.add('active');
+            document.body.style.overflow = 'hidden';
+        }
+
+        async function fetchAndRender(filePath) {
+            modalBody.innerHTML = '<div class="modal-loading">Loading...</div>';
+            try {
+                var res = await fetch(GITHUB_RAW_BASE + filePath);
+                if (!res.ok) throw new Error('HTTP ' + res.status);
+                var text = await res.text();
+                modalBody.innerHTML = marked.parse(text);
+            } catch (err) {
+                modalBody.innerHTML = '<p class="modal-error">Failed to load file: ' + err.message + '</p>';
+            }
+        }
+
+        function showFileList(link, fileList) {
+            openModal('Select a file to preview');
+            modalBody.innerHTML = '<div class="file-list">' +
+                fileList.map(function(f) {
+                    return '<a href="#" class="file-list-item" data-path="' + f + '">' + f + '</a>';
+                }).join('') + '</div>';
+
+            modalBody.querySelectorAll('.file-list-item').forEach(function(item) {
+                item.addEventListener('click', function(e) {
+                    e.preventDefault();
+                    var filePath = item.dataset.path;
+                    modalTitle.textContent = filePath;
+                    fetchAndRender(filePath).then(function() {
+                        var backLink = document.createElement('a');
+                        backLink.href = '#';
+                        backLink.className = 'modal-back';
+                        backLink.innerHTML = '&larr; Back to file list';
+                        backLink.addEventListener('click', function(e2) {
+                            e2.preventDefault();
+                            showFileList(link, fileList);
+                        });
+                        modalBody.insertBefore(backLink, modalBody.firstChild);
+                    });
+                });
+            });
+        }
+
+        modalClose.addEventListener('click', closeModal);
+        modalOverlay.addEventListener('click', closeModal);
+        document.addEventListener('keydown', function(e) {
+            if (e.key === 'Escape') closeModal();
+        });
+
+        document.querySelectorAll('.file-preview-link').forEach(function(link) {
+            link.addEventListener('click', function(e) {
+                e.preventDefault();
+                var path = link.dataset.path;
+                var paths = link.dataset.paths;
+
+                if (path) {
+                    openModal(path);
+                    fetchAndRender(path);
+                } else if (paths) {
+                    var fileList = paths.split(',');
+                    showFileList(link, fileList);
+                }
+            });
+        });
+    })();
+    </script>
 </body>
 </html>

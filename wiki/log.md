@@ -15,6 +15,12 @@ Chronological record of all wiki and code operations.
 
 ---
 
+## [2026-04-27] update | Website UI Improvements
+
+- **Operation**: code-change
+- **Pages touched**: [[log]], [[index]]
+- **Summary**: Updated website/index.html and website/styles.css with 5 improvements: (1) replaced emoji platform icons with actual image files, (2) fixed Files section overflow in Platform Setup cards, (3) replaced step-based workflow with Mermaid.js flowchart from README, (4) fixed Agentic Platform grid to fit 5 agent cards and protocol code overflow, (5) added markdown file preview modal that fetches content from GitHub raw.
+
 ## [2026-04-27] update | Cross-Platform Integration Tests
 
 - **Operation**: code-change

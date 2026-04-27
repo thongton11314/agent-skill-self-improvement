@@ -961,9 +961,6 @@ skillforge/
 │   ├── ai_skills/                 # AI-generated skill artifacts
 │   └── results/
 │       └── simulation_results.json # Synthetic simulation results
-└── website/
-    ├── index.html                 # GitHub Pages showcase
-    └── styles.css                 # Website styles
 ```
 
 ---

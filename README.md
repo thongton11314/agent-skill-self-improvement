@@ -682,33 +682,45 @@ The simulation validates the framework by running a controlled comparison betwee
 
 #### Aggregate Comparison
 
-```
-Radar Chart: Human vs AI Skill Performance
-═══════════════════════════════════════════════
+```mermaid
+flowchart TD
+    A[Human vs AI Skill Performance] --> H & AI
 
-                    Pass Rate
-                      100%
-                       │
-                       │
-        Maintain-   ╱──┼──╲   Correctness
-        ability    ╱   │   ╲
-                  ╱    │    ╲
-                 ╱     │     ╲
-                ╱      │      ╲
-               ╱       │       ╲
-              ╱   Human: ──    ╲
-             ╱   AI:     ━━     ╲
-            ╱          │         ╲
-           ╱           │          ╲
-          ╱            │           ╲
-         ╱             │            ╲
-   Generali-     ──────┼──────    Speed
-   zation              │
-                       │
-                  Error Control
+    subgraph H["👤 Human-Authored Skills"]
+        H1["Pass Rate: 66%"]
+        H2["Authoring Time: 40 min"]
+        H3["✅ Ambiguity Handling"]
+        H4["✅ Edge Case Intuition"]
+    end
 
-   Human  ── : 66% avg pass, 40 min avg time
-   AI     ━━ : 73% avg pass,  8 min avg time
+    subgraph AI["🤖 AI-Generated Skills — SkillForge"]
+        A1["Pass Rate: 73%"]
+        A2["Generation Time: 8 min"]
+        A3["✅ Systematic Coverage"]
+        A4["✅ Format Precision"]
+    end
+
+    H --> V{{"Verdict"}}
+    AI --> V
+
+    V --> R1["+7pp Higher Pass Rate → AI"]
+    V --> R2["5x Faster Authoring → AI"]
+    V --> R3["Better Edge Cases → Human"]
+    V --> R4["Better Ambiguity → Human"]
+
+    R1 --> O["🏆 Optimal: Human Strategy + AI Execution"]
+    R2 --> O
+    R3 --> O
+    R4 --> O
+
+    style H fill:#fffbeb,stroke:#fde68a,color:#1e293b
+    style AI fill:#eff6ff,stroke:#bfdbfe,color:#1e293b
+    style V fill:#fefce8,stroke:#fde68a,color:#92400e
+    style O fill:#ecfdf5,stroke:#10b981,color:#065f46
+    style R1 fill:#eff6ff,stroke:#bfdbfe,color:#1d4ed8
+    style R2 fill:#eff6ff,stroke:#bfdbfe,color:#1d4ed8
+    style R3 fill:#fffbeb,stroke:#fde68a,color:#92400e
+    style R4 fill:#fffbeb,stroke:#fde68a,color:#92400e
 ```
 
 #### Failure Analysis

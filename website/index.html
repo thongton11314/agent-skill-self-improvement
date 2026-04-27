@@ -433,6 +433,98 @@ print(f"Skill v{skill.version}: {skill.accuracy:.0%} accuracy")</code></pre>
         </div>
     </section>
 
+    <!-- Agentic Platform Section -->
+    <section id="agentic" class="section section-alt">
+        <div class="container">
+            <h2 class="section-title">Agentic Platform</h2>
+            <p class="section-subtitle">Discoverable agents for any orchestration framework</p>
+
+            <div class="agents-grid">
+                <div class="agent-card">
+                    <div class="agent-id">skillforge.evolver</div>
+                    <h4>SkillEvolver</h4>
+                    <p>Evolve a verified skill package for a task through co-evolutionary verification</p>
+                    <span class="agent-badge agent-stateful">Stateful</span>
+                </div>
+                <div class="agent-card">
+                    <div class="agent-id">skillforge.retriever</div>
+                    <h4>SkillRetriever</h4>
+                    <p>Search the Skill Bank for existing skills matching a task description</p>
+                    <span class="agent-badge agent-stateless">Stateless</span>
+                </div>
+                <div class="agent-card">
+                    <div class="agent-id">skillforge.executor</div>
+                    <h4>SkillExecutor</h4>
+                    <p>Execute a task augmented with a specific skill from the Skill Bank</p>
+                    <span class="agent-badge agent-stateful">Stateful</span>
+                </div>
+                <div class="agent-card">
+                    <div class="agent-id">skillforge.evaluator</div>
+                    <h4>SkillEvaluator</h4>
+                    <p>Benchmark and compare skill quality using synthetic test generation</p>
+                    <span class="agent-badge agent-stateless">Stateless</span>
+                </div>
+                <div class="agent-card">
+                    <div class="agent-id">skillforge.memory</div>
+                    <h4>MemoryConsultant</h4>
+                    <p>Query tiered memory for relevant experience, patterns, and procedural rules</p>
+                    <span class="agent-badge agent-stateless">Stateless</span>
+                </div>
+            </div>
+
+            <h3 class="subsection-title" style="margin-top: 3rem;">Integration Protocols</h3>
+            <div class="protocol-grid">
+                <div class="protocol-card">
+                    <h4>&#128295; Tool Registration</h4>
+                    <p>Register as callable tools in LangChain, AutoGen, Semantic Kernel, or OpenAI function calling.</p>
+                    <code>create_tools(forge)</code>
+                </div>
+                <div class="protocol-card">
+                    <h4>&#129302; Sub-Agent Delegation</h4>
+                    <p>Provide SkillForge agents to orchestrators via the Agent Provider interface.</p>
+                    <code>provider.get_agent("skillforge.evolver")</code>
+                </div>
+                <div class="protocol-card">
+                    <h4>&#9889; Event-Driven</h4>
+                    <p>Subscribe to lifecycle events for reactive workflows &mdash; skill.evolved, task.failed, memory.promoted, and more.</p>
+                    <code>@bus.on("skill.evolved")</code>
+                </div>
+                <div class="protocol-card">
+                    <h4>&#128640; MCP Server</h4>
+                    <p>Expose as a Model Context Protocol server for VS Code and Copilot agents.</p>
+                    <code>python -m skillforge.agentic.mcp_server</code>
+                </div>
+            </div>
+
+            <h3 class="subsection-title" style="margin-top: 3rem;">Multi-Agent Collaboration</h3>
+            <div class="collab-diagram">
+                <div class="collab-flow">
+                    <div class="collab-node collab-start">Orchestrator</div>
+                    <div class="collab-arrow">&rarr;</div>
+                    <div class="collab-node collab-agent">SkillRetriever</div>
+                    <div class="collab-arrow">&rarr;</div>
+                    <div class="collab-decision">Skill exists?</div>
+                </div>
+                <div class="collab-branches">
+                    <div class="collab-branch">
+                        <span class="collab-label collab-yes">Yes</span>
+                        <div class="collab-arrow">&rarr;</div>
+                        <div class="collab-node collab-agent">SkillExecutor</div>
+                        <div class="collab-arrow">&rarr;</div>
+                        <div class="collab-node collab-end">Result</div>
+                    </div>
+                    <div class="collab-branch">
+                        <span class="collab-label collab-no">No</span>
+                        <div class="collab-arrow">&rarr;</div>
+                        <div class="collab-node collab-agent">SkillEvolver</div>
+                        <div class="collab-arrow">&rarr;</div>
+                        <div class="collab-node collab-agent">MemoryConsultant</div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
     <!-- CTA Section -->
     <section class="section cta-section">
         <div class="container">

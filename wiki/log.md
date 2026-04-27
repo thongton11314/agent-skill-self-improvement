@@ -15,6 +15,12 @@ Chronological record of all wiki and code operations.
 
 ---
 
+## [2026-04-27] update | Website Agentic Platform Section & README Mermaid
+
+- **Operation**: update
+- **Pages touched**: [[log]]
+- **Summary**: Added Agentic Platform section to website (index.html, styles.css) with 5 discoverable agents, 4 integration protocols, and multi-agent collaboration pattern — matching wiki/architecture/agent-interfaces.md. Converted README.md Aggregate Comparison from ASCII radar chart to Mermaid flowchart. Sync Gate passed.
+
 ## [2026-04-27] lint | Wiki Health Check & Consistency Fixes
 
 - **Operation**: lint

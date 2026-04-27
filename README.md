@@ -12,6 +12,7 @@
 - [Architecture](#architecture)
 - [Key Components](#key-components)
 - [Workflow](#workflow)
+- [Agentic Platform Integration](#agentic-platform-integration)
 - [Integration Guide](#integration-guide)
 - [Evaluation Methodology](#evaluation-methodology)
 - [Benchmarking](#benchmarking)
@@ -808,7 +809,12 @@ for skill in relevant_skills:
 ```
 skillforge/
 ├── README.md                      # This file
+├── AGENTS.md                      # Agent discovery for orchestrators
 ├── requirements.txt
+├── skills/                        # Discoverable skill files
+│   ├── evolve-skill.md            # Skill: evolve a new skill
+│   ├── retrieve-and-apply.md      # Skill: find and use existing skills
+│   └── evaluate-skills.md         # Skill: benchmark skill quality
 ├── docs/
 │   ├── integration.md             # Detailed integration instructions
 │   ├── evaluation.md              # Evaluation methodology deep dive
@@ -818,24 +824,26 @@ skillforge/
 │       ├── __init__.py
 │       ├── config.py              # Configuration management
 │       ├── core/
-│       │   ├── __init__.py
 │       │   ├── forge.py           # Main SkillForge orchestrator
 │       │   ├── generator.py       # Skill Generator
 │       │   ├── verifier.py        # Surrogate Verifier
 │       │   ├── skill_bank.py      # Skill Bank repository
-│       │   └── evolution.py       # Evolution Engine
+│       │   ├── evolution.py       # Evolution Engine
+│       │   ├── templates.py       # Domain-specific skill templates
+│       │   └── multi_model.py     # Multi-model skill evolution
 │       ├── memory/
-│       │   ├── __init__.py
 │       │   └── manager.py         # Tiered Memory + Adaptive Retrieval
 │       ├── evaluation/
-│       │   ├── __init__.py
 │       │   ├── benchmark.py       # Benchmark Runner
 │       │   ├── test_gen.py        # Synthetic Test Generator
 │       │   ├── metrics.py         # Evaluation metrics
 │       │   ├── failure.py         # Failure analysis
 │       │   └── simulation.py      # Human vs AI simulation runner
+│       ├── agentic/               # Agentic platform integration
+│       │   ├── tools.py           # Tool registry (OpenAI fn, LangChain)
+│       │   ├── provider.py        # Agent provider for orchestrators
+│       │   └── events.py          # Event bus for lifecycle events
 │       └── integrations/
-│           ├── __init__.py
 │           ├── agent_adapter.py   # Agent framework adapter
 │           ├── llm_middleware.py   # LLM pipeline middleware
 │           └── api_server.py      # REST API server
@@ -845,7 +853,8 @@ skillforge/
 │   ├── test_verifier.py           # Surrogate Verifier tests
 │   ├── test_memory.py             # Memory Manager tests
 │   ├── test_retrieval.py          # Retrieval Controller tests
-│   └── test_evaluation.py         # Evaluation & simulation tests
+│   ├── test_evaluation.py         # Evaluation & simulation tests
+│   └── test_agentic.py            # Agentic integration tests
 ├── benchmarks/
 │   ├── tasks/
 │   │   └── benchmark_tasks.json   # 10 benchmark task definitions
@@ -856,8 +865,6 @@ skillforge/
 │   ├── tasks/
 │   │   └── simulation_tasks.json  # 10 simulation task definitions
 │   ├── human_skills/              # Human-authored skill artifacts
-│   │   ├── SIM-001_retry_decorator.md
-│   │   └── SIM-003_cohort_analysis.md
 │   ├── ai_skills/                 # AI-generated skill artifacts
 │   └── results/
 │       └── simulation_results.json # Synthetic simulation results

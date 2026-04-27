@@ -15,6 +15,12 @@ Chronological record of all wiki and code operations.
 
 ---
 
+## [2026-04-27] update | Move Integration Section Below Platform Setup
+
+- **Operation**: code-change
+- **Pages touched**: [[log]]
+- **Summary**: Moved Integration section below Platform Setup (new order: Agentic → Platform Setup → Integration → CTA). Fixed alternating section backgrounds. Changed integration card grid to `repeat(5, 1fr)` so all 5 cards fit in one row with responsive fallback.
+
 ## [2026-04-27] update | Website UI Improvements
 
 - **Operation**: code-change

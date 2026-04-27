@@ -863,7 +863,7 @@ body {
 /* === Integration === */
 .integration-modes {
     display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+    grid-template-columns: repeat(5, 1fr);
     gap: 1.25rem;
     margin-bottom: 3rem;
 }
@@ -1359,5 +1359,9 @@ body {
 
     .collab-branch-row {
         gap: 2rem;
+    }
+
+    .integration-modes {
+        grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
     }
 }

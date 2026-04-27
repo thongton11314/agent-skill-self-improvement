@@ -375,70 +375,8 @@ flowchart TD
         </div>
     </section>
 
-    <!-- Integration Section -->
-    <section id="integration" class="section">
-        <div class="container">
-            <h2 class="section-title">Integration</h2>
-            <p class="section-subtitle">Plug-in architecture for any AI system</p>
-
-            <div class="integration-modes">
-                <div class="integration-card">
-                    <div class="integration-icon">&#128230;</div>
-                    <h4>SDK / Library</h4>
-                    <p>Import and call SkillForge APIs directly in your Python application</p>
-                    <code>from skillforge import SkillForge</code>
-                </div>
-                <div class="integration-card">
-                    <div class="integration-icon">&#9881;</div>
-                    <h4>Middleware</h4>
-                    <p>Wrap existing agent pipelines with transparent skill augmentation</p>
-                    <code>@middleware.enhance</code>
-                </div>
-                <div class="integration-card">
-                    <div class="integration-icon">&#127760;</div>
-                    <h4>REST API</h4>
-                    <p>Deploy as a standalone service with HTTP endpoints</p>
-                    <code>POST /v1/skills/evolve</code>
-                </div>
-                <div class="integration-card">
-                    <div class="integration-icon">&#128295;</div>
-                    <h4>Evaluation Pipeline</h4>
-                    <p>Integrate skill quality gates into CI/CD workflows</p>
-                    <code>python -m skillforge.evaluate</code>
-                </div>
-                <div class="integration-card">
-                    <div class="integration-icon">&#128268;</div>
-                    <h4>Plug-in</h4>
-                    <p>Framework-specific adapters for popular agent systems</p>
-                    <code>AgentAdapter(agent, forge)</code>
-                </div>
-            </div>
-
-            <div class="code-example">
-                <h4>Quick Start</h4>
-                <pre><code>from skillforge import SkillForge
-
-forge = SkillForge.from_config("config.yaml")
-
-# Define your task
-task = {
-    "instruction": "Build a data pipeline that validates and transforms CSV to Parquet",
-    "environment": {"tools": ["python", "pandas", "pyarrow"]},
-}
-
-# Evolve a skill through co-evolutionary verification
-skill = forge.evolve_skill(task, max_evolution_rounds=5)
-
-# Use the evolved skill with any agent
-result = forge.execute_with_skill(agent, task, skill)
-
-print(f"Skill v{skill.version}: {skill.accuracy:.0%} accuracy")</code></pre>
-            </div>
-        </div>
-    </section>
-
     <!-- Agentic Platform Section -->
-    <section id="agentic" class="section section-alt">
+    <section id="agentic" class="section">
         <div class="container">
             <h2 class="section-title">Agentic Platform</h2>
             <p class="section-subtitle">Discoverable agents for any orchestration framework</p>
@@ -537,7 +475,7 @@ print(f"Skill v{skill.version}: {skill.accuracy:.0%} accuracy")</code></pre>
     </section>
 
     <!-- Platform Setup Section -->
-    <section id="platform-setup" class="section">
+    <section id="platform-setup" class="section section-alt">
         <div class="container">
             <h2 class="section-title">Platform Setup</h2>
             <p class="section-subtitle">Integrate SkillForge into your AI coding platform in minutes</p>
@@ -634,6 +572,68 @@ print(f"Skill v{skill.version}: {skill.accuracy:.0%} accuracy")</code></pre>
                         </table>
                     </div>
                 </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Integration Section -->
+    <section id="integration" class="section">
+        <div class="container">
+            <h2 class="section-title">Integration</h2>
+            <p class="section-subtitle">Plug-in architecture for any AI system</p>
+
+            <div class="integration-modes">
+                <div class="integration-card">
+                    <div class="integration-icon">&#128230;</div>
+                    <h4>SDK / Library</h4>
+                    <p>Import and call SkillForge APIs directly in your Python application</p>
+                    <code>from skillforge import SkillForge</code>
+                </div>
+                <div class="integration-card">
+                    <div class="integration-icon">&#9881;</div>
+                    <h4>Middleware</h4>
+                    <p>Wrap existing agent pipelines with transparent skill augmentation</p>
+                    <code>@middleware.enhance</code>
+                </div>
+                <div class="integration-card">
+                    <div class="integration-icon">&#127760;</div>
+                    <h4>REST API</h4>
+                    <p>Deploy as a standalone service with HTTP endpoints</p>
+                    <code>POST /v1/skills/evolve</code>
+                </div>
+                <div class="integration-card">
+                    <div class="integration-icon">&#128295;</div>
+                    <h4>Evaluation Pipeline</h4>
+                    <p>Integrate skill quality gates into CI/CD workflows</p>
+                    <code>python -m skillforge.evaluate</code>
+                </div>
+                <div class="integration-card">
+                    <div class="integration-icon">&#128268;</div>
+                    <h4>Plug-in</h4>
+                    <p>Framework-specific adapters for popular agent systems</p>
+                    <code>AgentAdapter(agent, forge)</code>
+                </div>
+            </div>
+
+            <div class="code-example">
+                <h4>Quick Start</h4>
+                <pre><code>from skillforge import SkillForge
+
+forge = SkillForge.from_config("config.yaml")
+
+# Define your task
+task = {
+    "instruction": "Build a data pipeline that validates and transforms CSV to Parquet",
+    "environment": {"tools": ["python", "pandas", "pyarrow"]},
+}
+
+# Evolve a skill through co-evolutionary verification
+skill = forge.evolve_skill(task, max_evolution_rounds=5)
+
+# Use the evolved skill with any agent
+result = forge.execute_with_skill(agent, task, skill)
+
+print(f"Skill v{skill.version}: {skill.accuracy:.0%} accuracy")</code></pre>
             </div>
         </div>
     </section>

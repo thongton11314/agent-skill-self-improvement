@@ -71,57 +71,58 @@ SkillForge addresses these challenges through three synergistic mechanisms:
 
 ## Architecture
 
-```
-┌──────────────────────────────────────────────────────────────────────────┐
-│                     External Agent Orchestrators                         │
-│  ┌────────────┐  ┌────────────┐  ┌────────────┐  ┌────────────┐        │
-│  │ LangChain  │  │  AutoGen   │  │  CrewAI    │  │  Semantic  │  ...   │
-│  │            │  │            │  │            │  │  Kernel    │        │
-│  └─────┬──────┘  └─────┬──────┘  └─────┬──────┘  └─────┬──────┘        │
-└────────┼───────────────┼───────────────┼───────────────┼────────────────┘
-         │               │               │               │
-┌────────▼───────────────▼───────────────▼───────────────▼────────────────┐
-│                    Agentic Integration Layer                             │
-│  ┌──────────────┐  ┌──────────────┐  ┌──────────────┐  ┌────────────┐  │
-│  │ Tool         │  │ Agent        │  │ Event        │  │ MCP        │  │
-│  │ Registry     │  │ Provider     │  │ Bus          │  │ Server     │  │
-│  │              │  │              │  │              │  │            │  │
-│  │ - OpenAI fn  │  │ - Evolver    │  │ - skill.*    │  │ - evolve   │  │
-│  │ - LangChain  │  │ - Retriever  │  │ - task.*     │  │ - find     │  │
-│  │ - Custom     │  │ - Executor   │  │ - memory.*   │  │ - execute  │  │
-│  └──────────────┘  │ - Evaluator  │  │ - oracle.*   │  │ - memory   │  │
-│                    │ - Memory     │  └──────────────┘  └────────────┘  │
-│                    └──────────────┘                                     │
-└────────────────────────────────┬────────────────────────────────────────┘
-                                 │
-┌────────────────────────────────▼────────────────────────────────────────┐
-│                        SkillForge Core                                  │
-│                                                                         │
-│  ┌──────────────┐    ┌──────────────┐    ┌──────────────┐              │
-│  │    Skill      │◄──►│   Surrogate  │    │   Evolution  │              │
-│  │  Generator    │    │   Verifier   │    │    Engine    │              │
-│  │ + Templates   │    │ (isolated)   │    │ + Multi-Model│              │
-│  └──────┬───────┘    └──────┬───────┘    └──────┬───────┘              │
-│         │                   │                   │                       │
-│  ┌──────▼───────────────────▼───────────────────▼───────┐              │
-│  │                    Skill Bank                         │              │
-│  └──────────────────────────┬────────────────────────────┘              │
-│                             │                                           │
-│  ┌──────────────────────────▼──────────────────────────┐               │
-│  │              Tiered Memory System                    │               │
-│  │  ┌───────────┐  ┌───────────┐  ┌──────────────┐    │               │
-│  │  │ Episodic  │─►│ Semantic  │─►│  Procedural  │    │               │
-│  │  └───────────┘  └───────────┘  └──────────────┘    │               │
-│  └──────────────────────────┬──────────────────────────┘               │
-│                             │                                           │
-│  ┌──────────────────────────▼──────────────────────────┐               │
-│  │           Adaptive Retrieval Controller              │               │
-│  └─────────────────────────────────────────────────────┘               │
-│                                                                         │
-│  ┌─────────────────────────────────────────────────────┐               │
-│  │              Evaluation Module                       │               │
-│  └─────────────────────────────────────────────────────┘               │
-└─────────────────────────────────────────────────────────────────────────┘
+```mermaid
+flowchart TD
+    subgraph Orchestrators["External Agent Orchestrators"]
+        LC[LangChain]
+        AG[AutoGen]
+        CR[CrewAI]
+        SK[Semantic Kernel]
+        ETC["..."]
+    end
+
+    subgraph Integration["Agentic Integration Layer"]
+        TR["Tool Registry\n- OpenAI fn\n- LangChain\n- Custom"]
+        AP["Agent Provider\n- Evolver\n- Retriever\n- Executor\n- Evaluator\n- Memory"]
+        EB["Event Bus\n- skill.*\n- task.*\n- memory.*\n- oracle.*"]
+        MCP["MCP Server\n- evolve\n- find\n- execute\n- memory"]
+    end
+
+    subgraph Core["SkillForge Core"]
+        SG["Skill Generator\n+ Templates"]
+        SV["Surrogate Verifier\n(isolated)"]
+        EE["Evolution Engine\n+ Multi-Model"]
+
+        SB[Skill Bank]
+
+        subgraph Memory["Tiered Memory System"]
+            EP[Episodic] --> SE[Semantic] --> PR[Procedural]
+        end
+
+        ARC[Adaptive Retrieval Controller]
+        EM[Evaluation Module]
+
+        SG <--> SV
+        SG --> SB
+        SV --> SB
+        EE --> SB
+        SB --> Memory
+        Memory --> ARC
+    end
+
+    LC & AG & CR & SK & ETC --> Integration
+    TR & AP & EB & MCP --> Core
+
+    style Orchestrators fill:#E3F2FD,stroke:#1565C0,color:#0D47A1
+    style Integration fill:#FFF3E0,stroke:#E65100,color:#BF360C
+    style Core fill:#E8F5E9,stroke:#2E7D32,color:#1B5E20
+    style Memory fill:#F3E5F5,stroke:#6A1B9A,color:#4A148C
+    style SG fill:#BBDEFB,stroke:#1565C0
+    style SV fill:#BBDEFB,stroke:#1565C0
+    style EE fill:#BBDEFB,stroke:#1565C0
+    style SB fill:#C8E6C9,stroke:#2E7D32
+    style ARC fill:#C8E6C9,stroke:#2E7D32
+    style EM fill:#C8E6C9,stroke:#2E7D32
 ```
 
 ---
@@ -338,14 +339,19 @@ def on_failure(event):
 
 ### Multi-Agent Collaboration Pattern
 
-```
-Orchestrator ──► SkillRetriever ──► "Skill exists?" ──► SkillExecutor ──► Result
-     │                                    │ No
-     │                                    ▼
-     │                              SkillEvolver ──► "Create & verify"
-     │                                    │
-     │                                    ▼
-     └─────────────────────────── MemoryConsultant ──► "Learn from outcome"
+```mermaid
+flowchart LR
+    O[Orchestrator] --> SR[SkillRetriever]
+    SR --> Q{"Skill exists?"}
+    Q -->|Yes| SE[SkillExecutor] --> R([Result])
+    Q -->|No| EV[SkillEvolver] --> CV["Create & verify"]
+    CV --> MC[MemoryConsultant]
+    O --> MC
+    MC --> LO["Learn from outcome"]
+
+    style O fill:#4CAF50,color:#fff
+    style R fill:#2196F3,color:#fff
+    style Q fill:#FF9800,color:#fff
 ```
 
 ### Discoverable Skill Files
@@ -415,6 +421,35 @@ SkillForge is designed as a plug-in framework that integrates into existing AI s
 
 ### Integration Modes
 
+```mermaid
+flowchart TD
+    SF[SkillForge] --> Code["Programmatic Integration"]
+    SF --> Platform["Platform Integration"]
+
+    subgraph CodeModes["Programmatic"]
+        SDK["SDK / Library\nDirect import & call"]
+        MW["Middleware\nRequest/response interception"]
+        API["API Wrapper\nHTTP / gRPC endpoint"]
+        EVAL["Evaluation Module\nCI/CD pipeline"]
+        PLUG["Plug-in\nFramework adapter"]
+    end
+
+    subgraph PlatformModes["AI Coding Platforms"]
+        VSC["VS Code Copilot\n.github/ agents & skills"]
+        CL["Claude Code\nCLAUDE.md + .claude/skills/"]
+        CDX["OpenAI Codex\nAGENTS.md + skills/"]
+    end
+
+    Code --> SDK & MW & API & EVAL & PLUG
+    Platform --> VSC & CL & CDX
+
+    style SF fill:#4CAF50,color:#fff
+    style Code fill:#E3F2FD,stroke:#1565C0,color:#0D47A1
+    style Platform fill:#FFF3E0,stroke:#E65100,color:#BF360C
+    style CodeModes fill:#E3F2FD,stroke:#1565C0,color:#0D47A1
+    style PlatformModes fill:#FFF3E0,stroke:#E65100,color:#BF360C
+```
+
 | Mode | Use Case | Integration Point |
 |---|---|---|
 | **SDK/Library** | Direct code integration | Import and call SkillForge APIs |
@@ -422,6 +457,9 @@ SkillForge is designed as a plug-in framework that integrates into existing AI s
 | **API Wrapper** | Remote service integration | HTTP/gRPC endpoint |
 | **Evaluation Module** | Quality assurance pipeline | CI/CD integration |
 | **Plug-in** | Extensible agent frameworks | Framework-specific adapter |
+| **VS Code Copilot** | AI coding assistant | Agents + skills via `.github/` |
+| **Claude Code** | AI coding assistant | `CLAUDE.md` + `.claude/skills/` |
+| **OpenAI Codex** | AI coding assistant | `AGENTS.md` + `skills/` |
 
 ### Quick Start (SDK Mode)
 

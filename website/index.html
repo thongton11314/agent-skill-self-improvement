@@ -1,0 +1,462 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>SkillForge — Self-Evolving Skill Synthesis Framework</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <!-- Hero Section -->
+    <header class="hero">
+        <div class="container">
+            <div class="hero-badge">Open Source Framework</div>
+            <h1 class="hero-title">Skill<span class="accent">Forge</span></h1>
+            <p class="hero-subtitle">A Self-Evolving Skill Synthesis Framework for AI Systems</p>
+            <p class="hero-description">
+                Enable AI agents to autonomously generate, verify, evolve, and reuse structured skill packages —
+                outperforming human-authored skills through co-evolutionary feedback loops.
+            </p>
+            <div class="hero-actions">
+                <a href="#overview" class="btn btn-primary">Learn More</a>
+                <a href="https://github.com" class="btn btn-secondary">View on GitHub</a>
+            </div>
+            <div class="hero-stats">
+                <div class="stat">
+                    <span class="stat-value">72.3%</span>
+                    <span class="stat-label">Evolved Skill Pass Rate</span>
+                </div>
+                <div class="stat">
+                    <span class="stat-value">+41.1pp</span>
+                    <span class="stat-label">vs No-Skill Baseline</span>
+                </div>
+                <div class="stat">
+                    <span class="stat-value">5x</span>
+                    <span class="stat-label">Faster Than Human Authoring</span>
+                </div>
+            </div>
+        </div>
+    </header>
+
+    <!-- Overview Section -->
+    <section id="overview" class="section">
+        <div class="container">
+            <h2 class="section-title">Why SkillForge?</h2>
+            <p class="section-subtitle">Modern AI agents face a fundamental skill acquisition bottleneck</p>
+
+            <div class="problem-grid">
+                <div class="problem-card">
+                    <div class="problem-icon">&#9888;</div>
+                    <h3>Manual Authoring Doesn't Scale</h3>
+                    <p>Human-crafted skills require domain experts, are expensive to produce, and cannot keep pace with the diversity of tasks agents encounter.</p>
+                </div>
+                <div class="problem-card">
+                    <div class="problem-icon">&#8800;</div>
+                    <h3>Cognitive Misalignment</h3>
+                    <p>Skills designed for human intuition often degrade agent performance. What makes sense to a human expert doesn't match how LLM agents reason and act.</p>
+                </div>
+                <div class="problem-card">
+                    <div class="problem-icon">&#8635;</div>
+                    <h3>Experience Is Wasted</h3>
+                    <p>Agents solve tasks from scratch without converting past experience into reusable knowledge. Every task starts at zero.</p>
+                </div>
+            </div>
+
+            <div class="solution-banner">
+                <h3>SkillForge solves this through three synergistic mechanisms:</h3>
+                <div class="mechanism-grid">
+                    <div class="mechanism">
+                        <div class="mechanism-num">1</div>
+                        <h4>Co-Evolutionary Synthesis</h4>
+                        <p>A Skill Generator and Surrogate Verifier co-evolve together, iteratively refining skills through structured feedback loops.</p>
+                    </div>
+                    <div class="mechanism">
+                        <div class="mechanism-num">2</div>
+                        <h4>Tiered Memory</h4>
+                        <p>Experience is progressively distilled from raw episodes into cross-task patterns and executable rules, with adaptive retrieval.</p>
+                    </div>
+                    <div class="mechanism">
+                        <div class="mechanism-num">3</div>
+                        <h4>Failure-Driven Evolution</h4>
+                        <p>Skills evolve in response to diagnosed failure patterns. LLM-driven reflection provides causal insights for targeted repairs.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Architecture Section -->
+    <section id="architecture" class="section section-alt">
+        <div class="container">
+            <h2 class="section-title">Architecture</h2>
+            <p class="section-subtitle">A modular, plug-in framework with seven key components</p>
+
+            <div class="architecture-diagram">
+                <div class="arch-row">
+                    <div class="arch-component arch-primary">
+                        <h4>Skill Generator</h4>
+                        <p>Creates & refines multi-artifact skill packages</p>
+                    </div>
+                    <div class="arch-arrow">&#8596;</div>
+                    <div class="arch-component arch-primary">
+                        <h4>Surrogate Verifier</h4>
+                        <p>Co-evolving test generation with info isolation</p>
+                    </div>
+                    <div class="arch-arrow">&#8594;</div>
+                    <div class="arch-component arch-primary">
+                        <h4>Evolution Engine</h4>
+                        <p>Diagnose-before-prescribe improvement</p>
+                    </div>
+                </div>
+                <div class="arch-connector">&#8595;</div>
+                <div class="arch-row">
+                    <div class="arch-component arch-secondary">
+                        <h4>Skill Bank</h4>
+                        <p>Persistent evolving skill repository</p>
+                    </div>
+                </div>
+                <div class="arch-connector">&#8595;</div>
+                <div class="arch-row">
+                    <div class="arch-component arch-tertiary">
+                        <h4>Episodic Memory</h4>
+                        <p>Raw outcomes per task</p>
+                    </div>
+                    <div class="arch-arrow">&#8594;</div>
+                    <div class="arch-component arch-tertiary">
+                        <h4>Semantic Memory</h4>
+                        <p>Cross-task patterns</p>
+                    </div>
+                    <div class="arch-arrow">&#8594;</div>
+                    <div class="arch-component arch-tertiary">
+                        <h4>Procedural Memory</h4>
+                        <p>Executable rules</p>
+                    </div>
+                </div>
+                <div class="arch-connector">&#8595;</div>
+                <div class="arch-row">
+                    <div class="arch-component arch-accent">
+                        <h4>Adaptive Retrieval Controller</h4>
+                        <p>Thompson Sampling-based policy selection for when and what to retrieve</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Workflow Section -->
+    <section id="workflow" class="section">
+        <div class="container">
+            <h2 class="section-title">Workflow</h2>
+            <p class="section-subtitle">Co-evolutionary skill synthesis in iterative cycles</p>
+
+            <div class="workflow-steps">
+                <div class="step">
+                    <div class="step-num">1</div>
+                    <div class="step-content">
+                        <h4>Task Ingestion</h4>
+                        <p>Receive task definition with instructions and environment specification</p>
+                    </div>
+                </div>
+                <div class="step">
+                    <div class="step-num">2</div>
+                    <div class="step-content">
+                        <h4>Skill Generation</h4>
+                        <p>Generator creates initial skill package (v0) with workflow docs and scripts</p>
+                    </div>
+                </div>
+                <div class="step">
+                    <div class="step-num">3</div>
+                    <div class="step-content">
+                        <h4>Surrogate Verification</h4>
+                        <p>Isolated verifier generates test assertions and evaluates skill outputs</p>
+                    </div>
+                </div>
+                <div class="step">
+                    <div class="step-num">4</div>
+                    <div class="step-content">
+                        <h4>Feedback Loop</h4>
+                        <p>Structured failure diagnostics drive iterative skill refinement</p>
+                    </div>
+                </div>
+                <div class="step">
+                    <div class="step-num">5</div>
+                    <div class="step-content">
+                        <h4>Oracle Validation</h4>
+                        <p>Ground-truth oracle provides opaque pass/fail; triggers test escalation on gap</p>
+                    </div>
+                </div>
+                <div class="step">
+                    <div class="step-num">6</div>
+                    <div class="step-content">
+                        <h4>Deploy & Learn</h4>
+                        <p>Verified skills stored in bank; experience distilled into tiered memory</p>
+                    </div>
+                </div>
+            </div>
+
+            <div class="convergence-note">
+                <strong>Convergence:</strong> Skills typically converge within 3-5 evolution rounds, with the surrogate verifier absorbing ~60% of iteration cost before escalating to the oracle.
+            </div>
+        </div>
+    </section>
+
+    <!-- Evaluation Section -->
+    <section id="evaluation" class="section section-alt">
+        <div class="container">
+            <h2 class="section-title">Evaluation</h2>
+            <p class="section-subtitle">Rigorous, evaluation-driven design with built-in benchmarking</p>
+
+            <div class="metrics-grid">
+                <div class="metric-card">
+                    <h4>Pass Rate</h4>
+                    <p class="metric-formula">tasks passed / total tasks</p>
+                    <p>Primary quality metric — binary pass/fail per task</p>
+                </div>
+                <div class="metric-card">
+                    <h4>Correctness Score</h4>
+                    <p class="metric-formula">&#931; assertions passed / total assertions</p>
+                    <p>Fine-grained per-assertion accuracy measure</p>
+                </div>
+                <div class="metric-card">
+                    <h4>Evolution Efficiency</h4>
+                    <p class="metric-formula">final pass rate / evolution rounds</p>
+                    <p>Quality improvement per iteration</p>
+                </div>
+                <div class="metric-card">
+                    <h4>Transfer Score</h4>
+                    <p class="metric-formula">cross-model rate / self-evolved rate</p>
+                    <p>Portability across AI models</p>
+                </div>
+                <div class="metric-card">
+                    <h4>Token Cost</h4>
+                    <p class="metric-formula">tokens<sub>gen</sub> + tokens<sub>verify</sub></p>
+                    <p>Total computational cost of evolution</p>
+                </div>
+                <div class="metric-card">
+                    <h4>Failure Diversity</h4>
+                    <p class="metric-formula">H(failure categories)</p>
+                    <p>Entropy of failure mode distribution</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Benchmark Section -->
+    <section id="benchmarks" class="section">
+        <div class="container">
+            <h2 class="section-title">Benchmark Results</h2>
+            <p class="section-subtitle">Demonstrative results showing framework capabilities</p>
+            <p class="disclaimer">Note: These results are synthetic/demonstrative and illustrate the expected output format.</p>
+
+            <div class="benchmark-chart">
+                <div class="chart-title">Pass Rate (%) by Condition</div>
+                <div class="chart-bars">
+                    <div class="bar-row">
+                        <span class="bar-label">No-Skill Baseline</span>
+                        <div class="bar-container">
+                            <div class="bar" style="width: 31.2%;" data-value="31.2%"></div>
+                        </div>
+                    </div>
+                    <div class="bar-row">
+                        <span class="bar-label">Human-Curated</span>
+                        <div class="bar-container">
+                            <div class="bar bar-human" style="width: 52.8%;" data-value="52.8%"></div>
+                        </div>
+                    </div>
+                    <div class="bar-row">
+                        <span class="bar-label">One-Shot Self-Gen</span>
+                        <div class="bar-container">
+                            <div class="bar" style="width: 33.5%;" data-value="33.5%"></div>
+                        </div>
+                    </div>
+                    <div class="bar-row">
+                        <span class="bar-label">SkillForge (3 rnd)</span>
+                        <div class="bar-container">
+                            <div class="bar bar-forge" style="width: 58.4%;" data-value="58.4%"></div>
+                        </div>
+                    </div>
+                    <div class="bar-row">
+                        <span class="bar-label">SkillForge (5 rnd)</span>
+                        <div class="bar-container">
+                            <div class="bar bar-forge" style="width: 69.7%;" data-value="69.7%"></div>
+                        </div>
+                    </div>
+                    <div class="bar-row">
+                        <span class="bar-label">SkillForge (Full)</span>
+                        <div class="bar-container">
+                            <div class="bar bar-forge-full" style="width: 72.3%;" data-value="72.3%"></div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <h3 class="subsection-title">Cross-Model Transfer</h3>
+            <div class="transfer-table-wrapper">
+                <table class="data-table">
+                    <thead>
+                        <tr>
+                            <th>Target Model</th>
+                            <th>With Skills (%)</th>
+                            <th>No Skill (%)</th>
+                            <th>&Delta;</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr><td>Model A (self-evolved)</td><td class="highlight">72.3</td><td>31.2</td><td class="positive">+41.1</td></tr>
+                        <tr><td>Model B (transferred)</td><td>66.8</td><td>28.5</td><td class="positive">+38.3</td></tr>
+                        <tr><td>Model C (transferred)</td><td>62.1</td><td>22.3</td><td class="positive">+39.8</td></tr>
+                        <tr><td>Model D (transferred)</td><td>55.4</td><td>12.8</td><td class="positive">+42.6</td></tr>
+                        <tr><td>Model E (transferred)</td><td>50.2</td><td>9.1</td><td class="positive">+41.1</td></tr>
+                    </tbody>
+                </table>
+            </div>
+        </div>
+    </section>
+
+    <!-- Human vs AI Simulation Section -->
+    <section id="simulation" class="section section-alt">
+        <div class="container">
+            <h2 class="section-title">Human vs AI Simulation</h2>
+            <p class="section-subtitle">Controlled comparison validates framework effectiveness</p>
+            <p class="disclaimer">Note: These results are synthetic/demonstrative.</p>
+
+            <div class="comparison-grid">
+                <div class="comparison-card human-card">
+                    <h3>Human-Authored Skills</h3>
+                    <div class="comparison-stat">
+                        <span class="big-number">66%</span>
+                        <span class="stat-desc">Avg Pass Rate</span>
+                    </div>
+                    <div class="comparison-stat">
+                        <span class="big-number">40 min</span>
+                        <span class="stat-desc">Avg Authoring Time</span>
+                    </div>
+                    <ul class="strength-list">
+                        <li>Better ambiguity interpretation</li>
+                        <li>Creative problem-solving</li>
+                        <li>Domain intuition for edge cases</li>
+                    </ul>
+                </div>
+
+                <div class="vs-divider">
+                    <span class="vs-text">VS</span>
+                </div>
+
+                <div class="comparison-card ai-card">
+                    <h3>AI-Generated Skills</h3>
+                    <div class="comparison-stat">
+                        <span class="big-number accent-text">73%</span>
+                        <span class="stat-desc">Avg Pass Rate</span>
+                    </div>
+                    <div class="comparison-stat">
+                        <span class="big-number accent-text">8 min</span>
+                        <span class="stat-desc">Avg Generation Time</span>
+                    </div>
+                    <ul class="strength-list">
+                        <li>Systematic sub-task coverage</li>
+                        <li>Format and precision compliance</li>
+                        <li>5x faster than human authoring</li>
+                    </ul>
+                </div>
+            </div>
+
+            <div class="insight-box">
+                <h4>Key Insight</h4>
+                <p>
+                    AI-evolved skills outperform human-authored ones by encoding <strong>agent-native reasoning patterns</strong>
+                    rather than following human assumptions. The optimal approach is <strong>human-AI collaboration</strong>:
+                    human high-level strategy combined with AI-refined executable details.
+                </p>
+            </div>
+        </div>
+    </section>
+
+    <!-- Integration Section -->
+    <section id="integration" class="section">
+        <div class="container">
+            <h2 class="section-title">Integration</h2>
+            <p class="section-subtitle">Plug-in architecture for any AI system</p>
+
+            <div class="integration-modes">
+                <div class="integration-card">
+                    <div class="integration-icon">&#128230;</div>
+                    <h4>SDK / Library</h4>
+                    <p>Import and call SkillForge APIs directly in your Python application</p>
+                    <code>from skillforge import SkillForge</code>
+                </div>
+                <div class="integration-card">
+                    <div class="integration-icon">&#9881;</div>
+                    <h4>Middleware</h4>
+                    <p>Wrap existing agent pipelines with transparent skill augmentation</p>
+                    <code>@middleware.enhance</code>
+                </div>
+                <div class="integration-card">
+                    <div class="integration-icon">&#127760;</div>
+                    <h4>REST API</h4>
+                    <p>Deploy as a standalone service with HTTP endpoints</p>
+                    <code>POST /v1/skills/evolve</code>
+                </div>
+                <div class="integration-card">
+                    <div class="integration-icon">&#128295;</div>
+                    <h4>Evaluation Pipeline</h4>
+                    <p>Integrate skill quality gates into CI/CD workflows</p>
+                    <code>python -m skillforge.evaluate</code>
+                </div>
+                <div class="integration-card">
+                    <div class="integration-icon">&#128268;</div>
+                    <h4>Plug-in</h4>
+                    <p>Framework-specific adapters for popular agent systems</p>
+                    <code>AgentAdapter(agent, forge)</code>
+                </div>
+            </div>
+
+            <div class="code-example">
+                <h4>Quick Start</h4>
+                <pre><code>from skillforge import SkillForge
+
+forge = SkillForge.from_config("config.yaml")
+
+# Define your task
+task = {
+    "instruction": "Build a data pipeline that validates and transforms CSV to Parquet",
+    "environment": {"tools": ["python", "pandas", "pyarrow"]},
+}
+
+# Evolve a skill through co-evolutionary verification
+skill = forge.evolve_skill(task, max_evolution_rounds=5)
+
+# Use the evolved skill with any agent
+result = forge.execute_with_skill(agent, task, skill)
+
+print(f"Skill v{skill.version}: {skill.accuracy:.0%} accuracy")</code></pre>
+            </div>
+        </div>
+    </section>
+
+    <!-- CTA Section -->
+    <section class="section cta-section">
+        <div class="container">
+            <h2 class="cta-title">Ready to Forge Better Skills?</h2>
+            <p class="cta-description">
+                SkillForge is open source and ready for integration into your AI systems.
+                Start evolving skills that outperform human-authored ones.
+            </p>
+            <div class="hero-actions">
+                <a href="https://github.com" class="btn btn-primary">Get Started</a>
+                <a href="#architecture" class="btn btn-secondary">Read the Docs</a>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="container">
+            <p>SkillForge &mdash; A Self-Evolving Skill Synthesis Framework</p>
+            <p class="footer-note">
+                An original framework synthesized from analysis of self-evolving agent systems,
+                co-evolutionary verification methods, and adaptive memory architectures.
+            </p>
+        </div>
+    </footer>
+</body>
+</html>

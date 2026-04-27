@@ -1,0 +1,122 @@
+[
+  {
+    "task_id": "BENCH-001",
+    "domain": "software_engineering",
+    "instruction": "Create a Python script that reads a CSV file, validates the schema against a provided JSON schema definition, removes duplicate rows based on a composite key, and outputs the cleaned data as a Parquet file. Handle malformed rows by logging them to a separate error file.",
+    "environment": {
+      "language": "python",
+      "tools": ["pandas", "pyarrow", "jsonschema"],
+      "timeout": 300
+    },
+    "difficulty": "medium",
+    "expected_artifacts": ["clean_output.parquet", "errors.log"]
+  },
+  {
+    "task_id": "BENCH-002",
+    "domain": "software_engineering",
+    "instruction": "Build a REST API endpoint that accepts JSON payloads, validates required fields (name, email, age), stores valid entries in a SQLite database, and returns appropriate HTTP status codes for success (201), validation errors (400), and server errors (500).",
+    "environment": {
+      "language": "python",
+      "tools": ["flask", "sqlite3", "jsonschema"],
+      "timeout": 300
+    },
+    "difficulty": "medium",
+    "expected_artifacts": ["app.py", "database.db"]
+  },
+  {
+    "task_id": "BENCH-003",
+    "domain": "data_analysis",
+    "instruction": "Analyze a dataset of daily stock prices (columns: date, open, high, low, close, volume). Calculate 20-day and 50-day moving averages, identify golden cross and death cross events, compute RSI (14-day), and generate a summary report with buy/sell signals.",
+    "environment": {
+      "language": "python",
+      "tools": ["pandas", "numpy"],
+      "timeout": 300
+    },
+    "difficulty": "hard",
+    "expected_artifacts": ["analysis_report.json", "signals.csv"]
+  },
+  {
+    "task_id": "BENCH-004",
+    "domain": "scientific_computing",
+    "instruction": "Implement a numerical solver for the 1D heat equation using the finite difference method. Accept parameters for rod length, thermal diffusivity, boundary conditions, initial temperature distribution, time step, and spatial resolution. Output temperature profiles at specified time snapshots.",
+    "environment": {
+      "language": "python",
+      "tools": ["numpy", "scipy"],
+      "timeout": 600
+    },
+    "difficulty": "hard",
+    "expected_artifacts": ["solver.py", "temperature_profiles.csv"]
+  },
+  {
+    "task_id": "BENCH-005",
+    "domain": "web_development",
+    "instruction": "Create a static HTML page with a responsive contact form that validates inputs client-side (name required, email format check, message min 10 chars). On submission, display a success message and prevent double submission. Style with CSS only, no frameworks.",
+    "environment": {
+      "language": "html",
+      "tools": ["html", "css", "javascript"],
+      "timeout": 300
+    },
+    "difficulty": "easy",
+    "expected_artifacts": ["index.html", "styles.css"]
+  },
+  {
+    "task_id": "BENCH-006",
+    "domain": "system_administration",
+    "instruction": "Write a script that monitors disk usage across all mounted filesystems. If any filesystem exceeds 85% usage, generate an alert with filesystem path, usage percentage, and available space. Output results as structured JSON and optionally send to a log file with timestamps.",
+    "environment": {
+      "language": "python",
+      "tools": ["os", "shutil", "json"],
+      "timeout": 120
+    },
+    "difficulty": "easy",
+    "expected_artifacts": ["monitor.py", "disk_report.json"]
+  },
+  {
+    "task_id": "BENCH-007",
+    "domain": "data_analysis",
+    "instruction": "Parse Apache access log files and generate a report showing: top 10 most visited URLs, request count by HTTP status code, hourly traffic distribution, top 10 IP addresses by request count, and average response time per endpoint. Handle malformed log lines gracefully.",
+    "environment": {
+      "language": "python",
+      "tools": ["re", "collections", "json"],
+      "timeout": 300
+    },
+    "difficulty": "medium",
+    "expected_artifacts": ["log_analyzer.py", "report.json"]
+  },
+  {
+    "task_id": "BENCH-008",
+    "domain": "software_engineering",
+    "instruction": "Implement a task scheduler that accepts tasks with priorities (1-10), estimated durations, deadlines, and dependencies. Use topological sorting for dependency resolution and earliest-deadline-first for scheduling. Output a Gantt-chart-compatible timeline in JSON format.",
+    "environment": {
+      "language": "python",
+      "tools": ["collections", "heapq", "json"],
+      "timeout": 300
+    },
+    "difficulty": "hard",
+    "expected_artifacts": ["scheduler.py", "timeline.json"]
+  },
+  {
+    "task_id": "BENCH-009",
+    "domain": "scientific_computing",
+    "instruction": "Implement k-means clustering from scratch (no sklearn). Accept a CSV dataset with numeric features, number of clusters k, and max iterations. Use k-means++ initialization. Output cluster assignments, centroids, inertia per iteration, and silhouette score.",
+    "environment": {
+      "language": "python",
+      "tools": ["numpy", "csv"],
+      "timeout": 300
+    },
+    "difficulty": "medium",
+    "expected_artifacts": ["kmeans.py", "clusters.json"]
+  },
+  {
+    "task_id": "BENCH-010",
+    "domain": "system_administration",
+    "instruction": "Create a configuration file validator that reads YAML configuration files, checks for required keys, validates value types and ranges, detects duplicate keys, and reports all validation errors with line numbers. Support nested configuration structures.",
+    "environment": {
+      "language": "python",
+      "tools": ["pyyaml", "json"],
+      "timeout": 120
+    },
+    "difficulty": "medium",
+    "expected_artifacts": ["validator.py", "validation_report.json"]
+  }
+]

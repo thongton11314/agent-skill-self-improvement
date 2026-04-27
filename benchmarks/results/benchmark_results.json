@@ -1,0 +1,118 @@
+{
+  "_metadata": {
+    "generated_at": "2026-04-27T00:00:00Z",
+    "framework_version": "0.1.0",
+    "num_seeds": 5,
+    "note": "SYNTHETIC/DEMONSTRATIVE — These results illustrate the expected output format. They are not from real experiments."
+  },
+  "conditions": {
+    "no_skill_baseline": {
+      "pass_rate_mean": 31.2,
+      "pass_rate_std": 2.8,
+      "correctness_score": 0.42,
+      "evolution_rounds": 0,
+      "total_tokens_k": 0,
+      "per_domain": {
+        "software_engineering": 28.5,
+        "data_analysis": 35.0,
+        "scientific_computing": 22.1,
+        "web_development": 40.3,
+        "system_administration": 30.1
+      }
+    },
+    "human_curated_skills": {
+      "pass_rate_mean": 52.8,
+      "pass_rate_std": 3.1,
+      "correctness_score": 0.65,
+      "evolution_rounds": null,
+      "total_tokens_k": 0,
+      "per_domain": {
+        "software_engineering": 55.2,
+        "data_analysis": 60.4,
+        "scientific_computing": 38.7,
+        "web_development": 62.1,
+        "system_administration": 47.6
+      }
+    },
+    "one_shot_self_gen": {
+      "pass_rate_mean": 33.5,
+      "pass_rate_std": 4.2,
+      "correctness_score": 0.44,
+      "evolution_rounds": 1,
+      "total_tokens_k": 12.4,
+      "per_domain": {
+        "software_engineering": 30.8,
+        "data_analysis": 36.2,
+        "scientific_computing": 25.3,
+        "web_development": 41.5,
+        "system_administration": 33.7
+      }
+    },
+    "cot_guided_self_gen": {
+      "pass_rate_mean": 32.1,
+      "pass_rate_std": 5.0,
+      "correctness_score": 0.43,
+      "evolution_rounds": 1,
+      "total_tokens_k": 18.7,
+      "per_domain": {
+        "software_engineering": 29.4,
+        "data_analysis": 34.8,
+        "scientific_computing": 24.7,
+        "web_development": 39.2,
+        "system_administration": 32.4
+      }
+    },
+    "skillforge_3_rounds": {
+      "pass_rate_mean": 58.4,
+      "pass_rate_std": 3.5,
+      "correctness_score": 0.71,
+      "evolution_rounds": 3,
+      "total_tokens_k": 45.2,
+      "per_domain": {
+        "software_engineering": 61.3,
+        "data_analysis": 63.8,
+        "scientific_computing": 48.2,
+        "web_development": 65.7,
+        "system_administration": 53.0
+      }
+    },
+    "skillforge_5_rounds": {
+      "pass_rate_mean": 69.7,
+      "pass_rate_std": 2.1,
+      "correctness_score": 0.82,
+      "evolution_rounds": 5,
+      "total_tokens_k": 78.6,
+      "per_domain": {
+        "software_engineering": 73.5,
+        "data_analysis": 74.2,
+        "scientific_computing": 60.8,
+        "web_development": 75.1,
+        "system_administration": 64.9
+      }
+    },
+    "skillforge_full": {
+      "pass_rate_mean": 72.3,
+      "pass_rate_std": 1.8,
+      "correctness_score": 0.86,
+      "evolution_rounds": 5,
+      "total_tokens_k": 95.3,
+      "per_domain": {
+        "software_engineering": 76.8,
+        "data_analysis": 77.1,
+        "scientific_computing": 63.4,
+        "web_development": 78.2,
+        "system_administration": 66.0
+      }
+    }
+  },
+  "cross_model_transfer": {
+    "note": "Skills evolved by Model A transferred to Models B-E",
+    "results": [
+      {"model": "Model A (self-evolved)", "with_skills": 72.3, "no_skill": 31.2, "delta": 41.1},
+      {"model": "Model B (transferred)", "with_skills": 66.8, "no_skill": 28.5, "delta": 38.3},
+      {"model": "Model C (transferred)", "with_skills": 62.1, "no_skill": 22.3, "delta": 39.8},
+      {"model": "Model D (transferred)", "with_skills": 55.4, "no_skill": 12.8, "delta": 42.6},
+      {"model": "Model E (transferred)", "with_skills": 50.2, "no_skill": 9.1, "delta": 41.1}
+    ]
+  }
+}

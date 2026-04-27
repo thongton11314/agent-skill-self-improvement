@@ -1,0 +1,82 @@
+[
+  {
+    "task_id": "SIM-001",
+    "domain": "software_engineering",
+    "instruction": "Create a Python module that implements a retry decorator with exponential backoff. The decorator should accept max_retries, base_delay, max_delay, and a list of retryable exception types. It should log each retry attempt with the exception details and remaining retries.",
+    "difficulty": "medium",
+    "expected_artifacts": ["retry.py"],
+    "test_cases": 8
+  },
+  {
+    "task_id": "SIM-002",
+    "domain": "software_engineering",
+    "instruction": "Build a file watcher utility that monitors a directory for new, modified, and deleted files. Support filtering by file extension. Emit structured events (JSON) to stdout with event type, file path, timestamp, and file size. Handle permission errors gracefully.",
+    "difficulty": "medium",
+    "expected_artifacts": ["watcher.py"],
+    "test_cases": 10
+  },
+  {
+    "task_id": "SIM-003",
+    "domain": "data_analysis",
+    "instruction": "Write a script that reads a CSV file of customer transactions (columns: customer_id, date, amount, category) and produces a cohort analysis. Group customers by first-purchase month, track retention rates over subsequent months, and output a cohort matrix as CSV.",
+    "difficulty": "hard",
+    "expected_artifacts": ["cohort_analysis.py", "cohort_matrix.csv"],
+    "test_cases": 8
+  },
+  {
+    "task_id": "SIM-004",
+    "domain": "data_analysis",
+    "instruction": "Implement an outlier detection pipeline using the IQR method and Z-score method. Accept a CSV dataset with numeric columns, apply both methods, and output a report listing flagged rows with the method that detected them and the offending column values.",
+    "difficulty": "medium",
+    "expected_artifacts": ["outlier_detector.py", "outlier_report.json"],
+    "test_cases": 8
+  },
+  {
+    "task_id": "SIM-005",
+    "domain": "scientific_computing",
+    "instruction": "Implement Simpson's 1/3 rule and Simpson's 3/8 rule for numerical integration. Accept a mathematical function (as a string expression), integration bounds, and number of intervals. Compare results with scipy.integrate.quad and report the absolute and relative errors.",
+    "difficulty": "medium",
+    "expected_artifacts": ["integration.py", "comparison_report.json"],
+    "test_cases": 10
+  },
+  {
+    "task_id": "SIM-006",
+    "domain": "scientific_computing",
+    "instruction": "Build a matrix decomposition toolkit that performs LU decomposition, QR decomposition, and Singular Value Decomposition on input matrices. Verify each decomposition by reconstruction and report the reconstruction error. Handle singular and non-square matrices.",
+    "difficulty": "hard",
+    "expected_artifacts": ["matrix_decomp.py", "results.json"],
+    "test_cases": 12
+  },
+  {
+    "task_id": "SIM-007",
+    "domain": "web_development",
+    "instruction": "Create a Markdown-to-HTML converter that supports headings (h1-h6), bold, italic, code blocks (with language hint), unordered and ordered lists, links, images, and horizontal rules. Output valid HTML5 with proper escaping of special characters.",
+    "difficulty": "medium",
+    "expected_artifacts": ["md_converter.py"],
+    "test_cases": 15
+  },
+  {
+    "task_id": "SIM-008",
+    "domain": "web_development",
+    "instruction": "Build a static site generator that reads a directory of Markdown files, applies a single HTML template with header/footer, generates a navigation index, and outputs the complete site to a build directory. Support front matter (title, date, tags) in YAML format.",
+    "difficulty": "hard",
+    "expected_artifacts": ["site_generator.py", "template.html"],
+    "test_cases": 10
+  },
+  {
+    "task_id": "SIM-009",
+    "domain": "system_administration",
+    "instruction": "Write a log rotation utility that monitors log files by size. When a file exceeds a configurable size threshold, rotate it by renaming with a timestamp suffix, optionally compress the rotated file with gzip, and keep only the N most recent rotated files.",
+    "difficulty": "medium",
+    "expected_artifacts": ["log_rotate.py"],
+    "test_cases": 8
+  },
+  {
+    "task_id": "SIM-010",
+    "domain": "system_administration",
+    "instruction": "Create a process monitor that periodically checks running processes against a watchlist. For each watched process, report CPU usage, memory usage, uptime, and thread count. If a watched process is not running, record it as down. Output periodic snapshots as JSON.",
+    "difficulty": "medium",
+    "expected_artifacts": ["proc_monitor.py", "snapshots.json"],
+    "test_cases": 8
+  }
+]

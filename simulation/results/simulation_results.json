@@ -1,0 +1,115 @@
+{
+  "_metadata": {
+    "generated_at": "2026-04-27T00:00:00Z",
+    "framework_version": "0.1.0",
+    "num_tasks": 10,
+    "note": "SYNTHETIC/DEMONSTRATIVE — These results illustrate the expected comparison format."
+  },
+  "task_results": [
+    {
+      "task_id": "SIM-001",
+      "domain": "software_engineering",
+      "human": {"pass_rate": 0.75, "authoring_time_min": 45, "iterations": 3, "artifact_lines": 89},
+      "ai": {"pass_rate": 0.88, "generation_time_min": 7.2, "iterations": 4, "artifact_lines": 64, "token_cost": 18500},
+      "winner": "ai"
+    },
+    {
+      "task_id": "SIM-002",
+      "domain": "software_engineering",
+      "human": {"pass_rate": 0.60, "authoring_time_min": 50, "iterations": 3, "artifact_lines": 124},
+      "ai": {"pass_rate": 0.70, "generation_time_min": 9.1, "iterations": 5, "artifact_lines": 98, "token_cost": 24200},
+      "winner": "ai"
+    },
+    {
+      "task_id": "SIM-003",
+      "domain": "data_analysis",
+      "human": {"pass_rate": 0.75, "authoring_time_min": 60, "iterations": 4, "artifact_lines": 156},
+      "ai": {"pass_rate": 0.75, "generation_time_min": 11.4, "iterations": 5, "artifact_lines": 112, "token_cost": 31800},
+      "winner": "tie"
+    },
+    {
+      "task_id": "SIM-004",
+      "domain": "data_analysis",
+      "human": {"pass_rate": 0.63, "authoring_time_min": 35, "iterations": 2, "artifact_lines": 78},
+      "ai": {"pass_rate": 0.75, "generation_time_min": 5.8, "iterations": 3, "artifact_lines": 65, "token_cost": 14300},
+      "winner": "ai"
+    },
+    {
+      "task_id": "SIM-005",
+      "domain": "scientific_computing",
+      "human": {"pass_rate": 0.50, "authoring_time_min": 55, "iterations": 3, "artifact_lines": 134},
+      "ai": {"pass_rate": 0.70, "generation_time_min": 10.2, "iterations": 5, "artifact_lines": 108, "token_cost": 28700},
+      "winner": "ai"
+    },
+    {
+      "task_id": "SIM-006",
+      "domain": "scientific_computing",
+      "human": {"pass_rate": 0.58, "authoring_time_min": 70, "iterations": 5, "artifact_lines": 198},
+      "ai": {"pass_rate": 0.67, "generation_time_min": 14.5, "iterations": 5, "artifact_lines": 145, "token_cost": 42100},
+      "winner": "ai"
+    },
+    {
+      "task_id": "SIM-007",
+      "domain": "web_development",
+      "human": {"pass_rate": 0.80, "authoring_time_min": 25, "iterations": 2, "artifact_lines": 67},
+      "ai": {"pass_rate": 0.73, "generation_time_min": 4.8, "iterations": 3, "artifact_lines": 53, "token_cost": 11200},
+      "winner": "human"
+    },
+    {
+      "task_id": "SIM-008",
+      "domain": "web_development",
+      "human": {"pass_rate": 0.70, "authoring_time_min": 40, "iterations": 3, "artifact_lines": 145},
+      "ai": {"pass_rate": 0.80, "generation_time_min": 8.6, "iterations": 4, "artifact_lines": 118, "token_cost": 25600},
+      "winner": "ai"
+    },
+    {
+      "task_id": "SIM-009",
+      "domain": "system_administration",
+      "human": {"pass_rate": 0.63, "authoring_time_min": 30, "iterations": 2, "artifact_lines": 56},
+      "ai": {"pass_rate": 0.75, "generation_time_min": 6.3, "iterations": 4, "artifact_lines": 48, "token_cost": 15800},
+      "winner": "ai"
+    },
+    {
+      "task_id": "SIM-010",
+      "domain": "system_administration",
+      "human": {"pass_rate": 0.50, "authoring_time_min": 45, "iterations": 3, "artifact_lines": 98},
+      "ai": {"pass_rate": 0.63, "generation_time_min": 8.9, "iterations": 5, "artifact_lines": 82, "token_cost": 22400},
+      "winner": "ai"
+    }
+  ],
+  "aggregate": {
+    "human_avg_pass_rate": 0.644,
+    "ai_avg_pass_rate": 0.736,
+    "human_avg_time_min": 45.5,
+    "ai_avg_time_min": 8.68,
+    "speed_ratio": 5.24,
+    "ai_wins": 7,
+    "human_wins": 1,
+    "ties": 2
+  },
+  "failure_analysis": {
+    "human_failures": {
+      "coverage_gaps": 0.15,
+      "logic_errors": 0.10,
+      "precision_issues": 0.05,
+      "algorithm_choice": 0.20,
+      "edge_cases": 0.18,
+      "ambiguity_handling": 0.32
+    },
+    "ai_failures": {
+      "coverage_gaps": 0.08,
+      "logic_errors": 0.12,
+      "precision_issues": 0.03,
+      "algorithm_choice": 0.07,
+      "edge_cases": 0.22,
+      "ambiguity_handling": 0.48
+    }
+  },
+  "insights": [
+    "AI-generated skills outperform human-authored by 9.2pp on average pass rate",
+    "AI generates skills 5.2x faster than human experts",
+    "Human skills are better at ambiguity interpretation (32% vs 48% of failures)",
+    "AI skills achieve better coverage (8% vs 15% coverage gap failures)",
+    "Human-AI collaboration produces optimal results"
+  ]
+}
